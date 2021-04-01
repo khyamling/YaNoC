@@ -1,0 +1,808 @@
+#!/usr/bin/python
+from __future__ import absolute_import
+from __future__ import print_function
+import io
+import sys
+import os
+import const
+import pyverilog.vparser.ast as vast
+from math import log
+#import numpy as np
+#import matplotlib.pyplot as plt
+from pyverilog.ast_code_generator.codegen import ASTCodeGenerator
+
+points = const.N 
+logpoints=int(log(points, 2))
+
+print("module mesh (")
+
+for i in range(const.N):
+ for j in range(const.N):
+  print("local_in"+str(i)+str(j)+","+"local_out"+str(i)+str(j)+",")
+def f():
+  print('clk, reset, '+' Write, Read);')
+  print( 'input clk, reset, Write, Read; ');
+for i in range(1):
+  f()
+
+datawid = vast.Parameter( 'DATAWID', vast.Rvalue(vast.IntConst('8')) )
+params = vast.Paramlist( [datawid] )
+codegen = ASTCodeGenerator() 
+rslt1 = codegen.visit(params)
+print(rslt1+";")
+def f1():
+  #count = vast.Reg('count', width=width)
+  ports0 = vast.Portlist( [local_in] )
+  ports1 = vast.Portlist( [local_out] )
+  codegen = ASTCodeGenerator() 
+  rslt0 = codegen.visit(ports0)
+  rslt1 = codegen.visit(ports1)
+  print(rslt0)
+  print(rslt1)
+
+for i in range(const.N):
+ for j in range(const.N):
+  width = vast.Width( vast.Minus(vast.Identifier('DATAWID'), vast.IntConst('1')), vast.IntConst('0') )
+  local_in =  vast.Input("local_in"+str(i)+str(j),width=width)
+  local_out =  vast.Output("local_out"+str(i)+str(j),width=width)
+  f1()
+
+def f02():
+ ports0 = vast.Portlist( [east] )
+ #ports1 = vast.Portlist( [west] )
+ #ports2 = vast.Portlist( [north] )
+ ports3 = vast.Portlist( [south] )
+ ports4 = vast.Portlist( [southeast] )
+ #ast = vast.ModuleDef( , ports, , ,)
+ codegen = ASTCodeGenerator()
+ rslt0 = codegen.visit(ports0)
+ #rslt1 = codegen.visit(ports1)
+ #rslt2 = codegen.visit(ports2)
+ rslt3 = codegen.visit(ports3)
+ rslt4 = codegen.visit(ports4)
+ print(rslt0)
+ #print(rslt1)
+ #print(rslt2)
+ print(rslt3)
+ print(rslt4)
+
+#if __name__ == '__main__':
+for i in range(const.N):
+ for j in range(const.N):
+   if(i==0 and j==0):
+      width = vast.Width( vast.Minus(vast.Identifier('DATAWID'), vast.IntConst('1')), vast.IntConst('0') )
+      east =  vast.Reg("east_in"+str(i)+str(j), width=width)
+      #west = vast.Reg("west_in"+str(i)+str(j), width=width)
+      #north =  vast.Reg("north_in"+str(i)+str(j), width=width)
+      south =  vast.Reg("south_in"+str(i)+str(j), width=width)
+      southeast =  vast.Reg("southeast_in"+str(i)+str(j), width=width)
+      f02()
+
+def f12():
+ #ports0 = vast.Portlist( [east] )
+ ports1 = vast.Portlist( [west] )
+ #ports2 = vast.Portlist( [north] )
+ ports3 = vast.Portlist( [south] )
+ ports4 = vast.Portlist( [southwest] )
+ 
+ #ast = vast.ModuleDef( , ports, , ,)
+ codegen = ASTCodeGenerator()
+ #rslt0 = codegen.visit(ports0)
+ rslt1 = codegen.visit(ports1)
+ #rslt2 = codegen.visit(ports2)
+ rslt3 = codegen.visit(ports3)
+ rslt4 = codegen.visit(ports4)
+ #print(rslt0)
+ print(rslt1)
+ #print(rslt2)
+ print(rslt3)
+ print(rslt4)
+
+#if __name__ == '__main__':
+for i in range(const.N):
+ for j in range(const.N):
+   if(i==0 and j==const.N-1):
+      width = vast.Width( vast.Minus(vast.Identifier('DATAWID'), vast.IntConst('1')), vast.IntConst('0') )
+      #east =  vast.Reg("east_in"+str(i)+str(j), width=width)
+      west = vast.Reg("west_in"+str(i)+str(j), width=width)
+      #north =  vast.Reg("north_in"+str(i)+str(j), width=width)
+      south =  vast.Reg("south_in"+str(i)+str(j), width=width)
+      southwest =  vast.Reg("southwest_in"+str(i)+str(j), width=width)
+
+      f12()
+
+def f22():
+ ports0 = vast.Portlist( [east] )
+ #ports1 = vast.Portlist( [west] )
+ ports2 = vast.Portlist( [north] )
+ ports3 = vast.Portlist( [northeast] )
+ #ports3 = vast.Portlist( [south] )
+ #ast = vast.ModuleDef( , ports, , ,)
+ codegen = ASTCodeGenerator()
+ rslt0 = codegen.visit(ports0)
+ #rslt1 = codegen.visit(ports1)
+ rslt2 = codegen.visit(ports2)
+ rslt3 = codegen.visit(ports3)
+ #rslt3 = codegen.visit(ports3)
+ print(rslt0)
+ #print(rslt1)
+ print(rslt2)
+ print(rslt3)
+
+#if __name__ == '__main__':
+for i in range(const.N):
+ for j in range(const.N):
+   if(i==const.N-1 and j==0):
+      width = vast.Width( vast.Minus(vast.Identifier('DATAWID'), vast.IntConst('1')), vast.IntConst('0') )
+      east =  vast.Reg("east_in"+str(i)+str(j), width=width)
+      #west = vast.Reg("west_in"+str(i)+str(j), width=width)
+      north =  vast.Reg("north_in"+str(i)+str(j), width=width)
+      northeast =  vast.Reg("northeast_in"+str(i)+str(j), width=width)
+      #south =  vast.Reg("south_in"+str(i)+str(j), width=width)
+      f22()
+
+def f32():
+ #ports0 = vast.Portlist( [east] )
+ ports1 = vast.Portlist( [west] )
+ ports2 = vast.Portlist( [north] )
+ ports3 = vast.Portlist( [northwest] )
+ #ports3 = vast.Portlist( [south] )
+ #ast = vast.ModuleDef( , ports, , ,)
+ codegen = ASTCodeGenerator()
+ #rslt0 = codegen.visit(ports0)
+ rslt1 = codegen.visit(ports1)
+ rslt2 = codegen.visit(ports2)
+ rslt3 = codegen.visit(ports3)
+ #rslt3 = codegen.visit(ports3)
+ #print(rslt0)
+ print(rslt1)
+ print(rslt2)
+ print(rslt3)
+
+#if __name__ == '__main__':
+for i in range(const.N):
+ for j in range(const.N):
+    if(i==const.N-1 and j==const.N-1):
+      width = vast.Width( vast.Minus(vast.Identifier('DATAWID'), vast.IntConst('1')), vast.IntConst('0') )
+      #east =  vast.Reg("east_in"+str(i)+str(j), width=width)
+      west = vast.Reg("west_in"+str(i)+str(j), width=width)
+      north =  vast.Reg("north_in"+str(i)+str(j), width=width)
+      northwest =  vast.Reg("northwest_in"+str(i)+str(j), width=width)
+      #south =  vast.Reg("south_in"+str(i)+str(j), width=width)
+      f32()
+
+def f42():
+ ports0 = vast.Portlist( [east] )
+ #ports1 = vast.Portlist( [west] )
+ ports2 = vast.Portlist( [north] )
+ ports3 = vast.Portlist( [south] )
+ ports4 = vast.Portlist( [northeast] )
+ ports5 = vast.Portlist( [southeast] )
+ #ast = vast.ModuleDef( , ports, , ,)
+ codegen = ASTCodeGenerator()
+ rslt0 = codegen.visit(ports0)
+ #rslt1 = codegen.visit(ports1)
+ rslt2 = codegen.visit(ports2)
+ rslt3 = codegen.visit(ports3)
+ rslt4 = codegen.visit(ports4)
+ rslt5 = codegen.visit(ports5) 
+ print(rslt0)
+ #print(rslt1)
+ print(rslt2)
+ print(rslt3)
+ print(rslt4)
+ print(rslt5) 
+
+#if __name__ == '__main__':
+for i in range(const.N):
+ for j in range(const.N):
+    if(j==0 and i!=0 and i!=const.N-1):
+      width = vast.Width( vast.Minus(vast.Identifier('DATAWID'), vast.IntConst('1')), vast.IntConst('0') )
+      east =  vast.Reg("east_in"+str(i)+str(j), width=width)
+      #west = vast.Reg("west_in"+str(i)+str(j), width=width)
+      north =  vast.Reg("north_in"+str(i)+str(j), width=width)
+      south =  vast.Reg("south_in"+str(i)+str(j), width=width)
+      northeast =  vast.Reg("northeast_in"+str(i)+str(j), width=width)
+      southeast =  vast.Reg("southeast_in"+str(i)+str(j), width=width)
+      
+      f42()
+
+def f52():
+ #ports0 = vast.Portlist( [east] )
+ ports1 = vast.Portlist( [west] )
+ ports2 = vast.Portlist( [north] )
+ ports3 = vast.Portlist( [south] )
+ ports4 = vast.Portlist( [northwest] )
+ ports5 = vast.Portlist( [southwest] ) 
+ #ast = vast.ModuleDef( , ports, , ,)
+ codegen = ASTCodeGenerator()
+ #rslt0 = codegen.visit(ports0)
+ rslt1 = codegen.visit(ports1)
+ rslt2 = codegen.visit(ports2)
+ rslt3 = codegen.visit(ports3)
+ rslt4 = codegen.visit(ports4)
+ rslt5 = codegen.visit(ports5)
+ 
+ #print(rslt0)
+ print(rslt1)
+ print(rslt2)
+ print(rslt3)
+ print(rslt4) 
+ print(rslt5)
+ 
+#if __name__ == '__main__':
+for i in range(const.N):
+ for j in range(const.N):
+    if(j==const.N-1 and i!=0 and i!=const.N-1):
+      width = vast.Width( vast.Minus(vast.Identifier('DATAWID'), vast.IntConst('1')), vast.IntConst('0') )
+      #east =  vast.Reg("east_in"+str(i)+str(j), width=width)
+      west = vast.Reg("west_in"+str(i)+str(j), width=width)
+      north =  vast.Reg("north_in"+str(i)+str(j), width=width)
+      south =  vast.Reg("south_in"+str(i)+str(j), width=width)
+      northwest =  vast.Reg("northwest_in"+str(i)+str(j), width=width)
+      southwest =  vast.Reg("southwest_in"+str(i)+str(j), width=width)
+            
+      f52()
+
+def f62():
+ ports0 = vast.Portlist( [east] )
+ ports1 = vast.Portlist( [west] )
+ #ports2 = vast.Portlist( [north] )
+ ports3 = vast.Portlist( [south] )
+ ports4 = vast.Portlist( [southeast] ) 
+ ports5 = vast.Portlist( [southwest] )  
+ #ast = vast.ModuleDef( , ports, , ,)
+ codegen = ASTCodeGenerator()
+ rslt0 = codegen.visit(ports0)
+ rslt1 = codegen.visit(ports1)
+ #rslt2 = codegen.visit(ports2)
+ rslt3 = codegen.visit(ports3)
+ rslt4 = codegen.visit(ports4)
+ rslt5 = codegen.visit(ports5)
+ print(rslt0)
+ print(rslt1)
+ #print(rslt2)
+ print(rslt3)
+ print(rslt4)
+ print(rslt5) 
+#if __name__ == '__main__':
+for i in range(const.N):
+ for j in range(const.N):
+    if(i==0 and j!=0 and j!=const.N-1):
+      width = vast.Width( vast.Minus(vast.Identifier('DATAWID'), vast.IntConst('1')), vast.IntConst('0') )
+      east =  vast.Reg("east_in"+str(i)+str(j), width=width)
+      west = vast.Reg("west_in"+str(i)+str(j), width=width)
+      #north =  vast.Reg("north_in"+str(i)+str(j), width=width)
+      south =  vast.Reg("south_in"+str(i)+str(j), width=width)
+      southeast =  vast.Reg("southeast_in"+str(i)+str(j), width=width)
+      southwest =  vast.Reg("southwest_in"+str(i)+str(j), width=width)
+      f62()
+
+def f72():
+ ports0 = vast.Portlist( [east] )
+ ports1 = vast.Portlist( [west] )
+ ports2 = vast.Portlist( [north] )
+ ports3 = vast.Portlist( [northeast] )
+ ports4 = vast.Portlist( [northwest] )  
+ #ports3 = vast.Portlist( [south] )
+ #ast = vast.ModuleDef( , ports, , ,)
+ codegen = ASTCodeGenerator()
+ rslt0 = codegen.visit(ports0)
+ rslt1 = codegen.visit(ports1)
+ rslt2 = codegen.visit(ports2)
+ rslt3 = codegen.visit(ports3)
+ rslt4 = codegen.visit(ports4)  
+ #rslt3 = codegen.visit(ports3)
+ print(rslt0)
+ print(rslt1)
+ print(rslt2)
+ print(rslt3)
+ print(rslt4)
+ #print(rslt3)
+
+#if __name__ == '__main__':
+for i in range(const.N):
+ for j in range(const.N):
+    if(i==const.N-1 and j!=0 and j!=const.N-1):
+      width = vast.Width( vast.Minus(vast.Identifier('DATAWID'), vast.IntConst('1')), vast.IntConst('0') )
+      east =  vast.Reg("east_in"+str(i)+str(j), width=width)
+      west = vast.Reg("west_in"+str(i)+str(j), width=width)
+      north =  vast.Reg("north_in"+str(i)+str(j), width=width)
+      northeast =  vast.Reg("northeast_in"+str(i)+str(j), width=width)
+      northwest =  vast.Reg("northwest_in"+str(i)+str(j), width=width)
+      #south =  vast.Reg("south_in"+str(i)+str(j), width=width)
+      f72()
+
+def f82():
+ ports0 = vast.Portlist( [east] )
+ ports1 = vast.Portlist( [west] )
+ ports2 = vast.Portlist( [north] )
+ ports3 = vast.Portlist( [south] )
+ ports4 = vast.Portlist( [northeast] )
+ ports5 = vast.Portlist( [northwest] ) 
+ ports6 = vast.Portlist( [southeast] )
+ ports7 = vast.Portlist( [southwest] ) 
+ 
+ #ast = vast.ModuleDef( , ports, , ,)
+ codegen = ASTCodeGenerator()
+ rslt0 = codegen.visit(ports0)
+ rslt1 = codegen.visit(ports1)
+ rslt2 = codegen.visit(ports2)
+ rslt3 = codegen.visit(ports3)
+ rslt4 = codegen.visit(ports4) 
+ rslt5 = codegen.visit(ports5) 
+ rslt6 = codegen.visit(ports6) 
+ rslt7 = codegen.visit(ports7)  
+ print(rslt0)
+ print(rslt1)
+ print(rslt2)
+ print(rslt3)
+ print(rslt4)
+ print(rslt5) 
+ print(rslt6) 
+ print(rslt7)
+
+#if __name__ == '__main__':
+for i in range(const.N):
+ for j in range(const.N):
+    if(i!=0 and i!=const.N-1 and j!=0 and j!=const.N-1):
+      width = vast.Width( vast.Minus(vast.Identifier('DATAWID'), vast.IntConst('1')), vast.IntConst('0') )
+      east =  vast.Reg("east_in"+str(i)+str(j), width=width)
+      west = vast.Reg("west_in"+str(i)+str(j), width=width)
+      north =  vast.Reg("north_in"+str(i)+str(j), width=width)
+      south =  vast.Reg("south_in"+str(i)+str(j), width=width)
+      northeast =  vast.Reg("northeast_in"+str(i)+str(j), width=width)
+      northwest =  vast.Reg("northwest_in"+str(i)+str(j), width=width)
+      southeast =  vast.Reg("southeast_in"+str(i)+str(j), width=width)
+      southwest =  vast.Reg("southwest_in"+str(i)+str(j), width=width)      
+      f82()
+   
+def f03():
+ ports0 = vast.Portlist( [east] )
+ #ports1 = vast.Portlist( [west] )
+ #ports2 = vast.Portlist( [north] )
+ ports3 = vast.Portlist( [south] )
+ ports4 = vast.Portlist( [southeast] )
+ #ast = vast.ModuleDef( , ports, , ,)
+ codegen = ASTCodeGenerator()
+ rslt0 = codegen.visit(ports0)
+ #rslt1 = codegen.visit(ports1)
+ #rslt2 = codegen.visit(ports2)
+ rslt3 = codegen.visit(ports3)
+ rslt4 = codegen.visit(ports4) 
+ print(rslt0)
+ #print(rslt1)
+ #print(rslt2)
+ print(rslt3)
+ print(rslt4)
+
+#if __name__ == '__main__':
+for i in range(const.N):
+ for j in range(const.N):
+  if(i==0 and j==0):
+    width = vast.Width( vast.Minus(vast.Identifier('DATAWID'), vast.IntConst('1')), vast.IntConst('0') )
+    east =  vast.Wire("east_out"+str(i)+str(j), width=width)
+    #west =  vast.Wire("west_out"+str(i)+str(j), width=width)
+    #north =  vast.Wire("north_out"+str(i)+str(j), width=width)
+    south =  vast.Wire("south_out"+str(i)+str(j), width=width)
+    southeast =  vast.Wire("southeast_out"+str(i)+str(j), width=width)
+    f03()
+
+def f13():
+ #ports0 = vast.Portlist( [east] )
+ ports1 = vast.Portlist( [west] )
+ #ports2 = vast.Portlist( [north] )
+ ports3 = vast.Portlist( [south] )
+ 
+ ports4 = vast.Portlist( [southwest] )
+ 
+ #ast = vast.ModuleDef( , ports, , ,)
+ codegen = ASTCodeGenerator()
+ #rslt0 = codegen.visit(ports0)
+ rslt1 = codegen.visit(ports1)
+ #rslt2 = codegen.visit(ports2)
+ rslt3 = codegen.visit(ports3)
+ rslt4 = codegen.visit(ports4)
+ #print(rslt0)
+ print(rslt1)
+ #print(rslt2)
+ print(rslt3)
+ print(rslt4)
+
+
+#if __name__ == '__main__':
+for i in range(const.N):
+ for j in range(const.N):
+   if(i==0 and j==const.N-1):
+      width = vast.Width( vast.Minus(vast.Identifier('DATAWID'), vast.IntConst('1')), vast.IntConst('0') )
+      #east =  vast.Reg("east_in"+str(i)+str(j), width=width)
+      west = vast.Wire("west_out"+str(i)+str(j), width=width)
+      #north =  vast.Reg("north_in"+str(i)+str(j), width=width)
+      south =  vast.Wire("south_out"+str(i)+str(j), width=width)
+      southwest =  vast.Wire("southwest_out"+str(i)+str(j), width=width)
+
+      f13()
+
+def f23():
+ ports0 = vast.Portlist( [east] )
+ #ports1 = vast.Portlist( [west] )
+ ports2 = vast.Portlist( [north] )
+ ports3 = vast.Portlist( [northeast] )
+  #ports3 = vast.Portlist( [south] )
+ #ast = vast.ModuleDef( , ports, , ,)
+ codegen = ASTCodeGenerator()
+ rslt0 = codegen.visit(ports0)
+ #rslt1 = codegen.visit(ports1)
+ rslt2 = codegen.visit(ports2)
+ rslt3 = codegen.visit(ports3)
+ 
+ #rslt3 = codegen.visit(ports3)
+ print(rslt0)
+ #print(rslt1)
+ print(rslt2)
+ print(rslt3)
+
+#if __name__ == '__main__':
+for i in range(const.N):
+ for j in range(const.N):
+   if(i==const.N-1 and j==0):
+      width = vast.Width( vast.Minus(vast.Identifier('DATAWID'), vast.IntConst('1')), vast.IntConst('0') )
+      east =  vast.Wire("east_out"+str(i)+str(j), width=width)
+      #west = vast.Reg("west_in"+str(i)+str(j), width=width)
+      north =  vast.Wire("north_out"+str(i)+str(j), width=width)
+      northeast =  vast.Wire("northeast_out"+str(i)+str(j), width=width)
+      #south =  vast.Reg("south_in"+str(i)+str(j), width=width)
+      f23()
+
+def f33():
+ #ports0 = vast.Portlist( [east] )
+ ports1 = vast.Portlist( [west] )
+ ports2 = vast.Portlist( [north] )
+ ports3 = vast.Portlist( [northwest] )
+ 
+ #ports3 = vast.Portlist( [south] )
+ #ast = vast.ModuleDef( , ports, , ,)
+ codegen = ASTCodeGenerator()
+ #rslt0 = codegen.visit(ports0)
+ rslt1 = codegen.visit(ports1)
+ rslt2 = codegen.visit(ports2)
+ rslt3 = codegen.visit(ports3) 
+ #rslt3 = codegen.visit(ports3)
+ #print(rslt0)
+ print(rslt1)
+ print(rslt2)
+ print(rslt3)
+
+#if __name__ == '__main__':
+for i in range(const.N):
+ for j in range(const.N):
+    if(i==const.N-1 and j==const.N-1):
+      width = vast.Width( vast.Minus(vast.Identifier('DATAWID'), vast.IntConst('1')), vast.IntConst('0') )
+      #east =  vast.Reg("east_in"+str(i)+str(j), width=width)
+      west = vast.Wire("west_out"+str(i)+str(j), width=width)
+      north =  vast.Wire("north_out"+str(i)+str(j), width=width)
+      northwest =  vast.Wire("northwest_out"+str(i)+str(j), width=width)
+      #south =  vast.Reg("south_in"+str(i)+str(j), width=width)
+      f33()
+
+def f43():
+ ports0 = vast.Portlist( [east] )
+ ports1 = vast.Portlist( [west] )
+ #ports2 = vast.Portlist( [north] )
+ ports3 = vast.Portlist( [south] )
+ ports4 = vast.Portlist( [southeast] ) 
+ ports5 = vast.Portlist( [southwest] )  
+ #ast = vast.ModuleDef( , ports, , ,)
+ codegen = ASTCodeGenerator()
+ rslt0 = codegen.visit(ports0)
+ rslt1 = codegen.visit(ports1)
+ #rslt2 = codegen.visit(ports2)
+ rslt3 = codegen.visit(ports3)
+ rslt4 = codegen.visit(ports4)
+ rslt5 = codegen.visit(ports5)
+ print(rslt0)
+ print(rslt1)
+ #print(rslt2)
+ print(rslt3)
+ print(rslt4)
+ print(rslt5) 
+#if __name__ == '__main__':
+for i in range(const.N):
+ for j in range(const.N):
+    if(i==0 and j!=0 and j!=const.N-1):
+      width = vast.Width( vast.Minus(vast.Identifier('DATAWID'), vast.IntConst('1')), vast.IntConst('0') )
+      east =  vast.Wire("east_out"+str(i)+str(j), width=width)
+      west = vast.Wire("west_out"+str(i)+str(j), width=width)
+      #north =  vast.Reg("north_in"+str(i)+str(j), width=width)
+      south =  vast.Wire("south_out"+str(i)+str(j), width=width)
+      southeast =  vast.Wire("southeast_out"+str(i)+str(j), width=width)
+      southwest =  vast.Wire("southwest_out"+str(i)+str(j), width=width)
+      f43()
+
+def f53():
+ #ports0 = vast.Portlist( [east] )
+ ports1 = vast.Portlist( [west] )
+ ports2 = vast.Portlist( [north] )
+ ports3 = vast.Portlist( [south] )
+ ports4 = vast.Portlist( [northwest] )
+ ports5 = vast.Portlist( [southwest] ) 
+ #ast = vast.ModuleDef( , ports, , ,)
+ codegen = ASTCodeGenerator()
+ #rslt0 = codegen.visit(ports0)
+ rslt1 = codegen.visit(ports1)
+ rslt2 = codegen.visit(ports2)
+ rslt3 = codegen.visit(ports3)
+ rslt4 = codegen.visit(ports4) 
+ rslt5 = codegen.visit(ports5) 
+ #print(rslt0)
+ print(rslt1)
+ print(rslt2)
+ print(rslt3)
+ print(rslt4)
+ print(rslt5)
+  
+#if __name__ == '__main__':
+for i in range(const.N):
+ for j in range(const.N):
+    if(j==const.N-1 and i!=0 and i!=const.N-1):
+      width = vast.Width( vast.Minus(vast.Identifier('DATAWID'), vast.IntConst('1')), vast.IntConst('0') )
+      #east =  vast.Reg("east_in"+str(i)+str(j), width=width)
+      west = vast.Wire("west_out"+str(i)+str(j), width=width)
+      north =  vast.Wire("north_out"+str(i)+str(j), width=width)
+      south =  vast.Wire("south_out"+str(i)+str(j), width=width)
+      northwest =  vast.Wire("northwest_out"+str(i)+str(j), width=width)
+      southwest =  vast.Wire("southwest_out"+str(i)+str(j), width=width)
+      f53()
+
+
+def f63():
+ ports0 = vast.Portlist( [east] )
+ #ports1 = vast.Portlist( [west] )
+ ports2 = vast.Portlist( [north] )
+ ports3 = vast.Portlist( [south] )
+ ports4 = vast.Portlist( [northeast] ) 
+ ports5 = vast.Portlist( [southeast] ) 
+ #ast = vast.ModuleDef( , ports, , ,)
+ codegen = ASTCodeGenerator()
+ rslt0 = codegen.visit(ports0)
+ #rslt1 = codegen.visit(ports1)
+ rslt2 = codegen.visit(ports2)
+ rslt3 = codegen.visit(ports3)
+ rslt4 = codegen.visit(ports4)
+ rslt5 = codegen.visit(ports5) 
+ 
+ print(rslt0)
+ #print(rslt1)
+ print(rslt2)
+ print(rslt3)
+ print(rslt4)
+ print(rslt5) 
+ 
+#if __name__ == '__main__':
+for i in range(const.N):
+ for j in range(const.N):
+    if(j==0 and i!=0 and i!=const.N-1):
+      width = vast.Width( vast.Minus(vast.Identifier('DATAWID'), vast.IntConst('1')), vast.IntConst('0') )
+      east =  vast.Wire("east_out"+str(i)+str(j), width=width)
+      #west = vast.Wire("west_out"+str(i)+str(j), width=width)
+      north =  vast.Wire("north_out"+str(i)+str(j), width=width)
+      south =  vast.Wire("south_out"+str(i)+str(j), width=width)
+      northeast =  vast.Wire("northeast_out"+str(i)+str(j), width=width)      
+      southeast =  vast.Wire("southeast_out"+str(i)+str(j), width=width)            
+      f63()
+
+def f73():
+ ports0 = vast.Portlist( [east] )
+ ports1 = vast.Portlist( [west] )
+ ports2 = vast.Portlist( [north] )
+ ports3 = vast.Portlist( [northeast] ) 
+ ports4 = vast.Portlist( [northwest] )  
+ #ports3 = vast.Portlist( [south] )
+ #ast = vast.ModuleDef( , ports, , ,)
+ codegen = ASTCodeGenerator()
+ rslt0 = codegen.visit(ports0)
+ rslt1 = codegen.visit(ports1)
+ rslt2 = codegen.visit(ports2)
+ rslt3 = codegen.visit(ports3)
+ rslt4 = codegen.visit(ports4)
+ print(rslt0)
+ print(rslt1)
+ print(rslt2)
+ print(rslt3)
+ print(rslt4) 
+
+#if __name__ == '__main__':
+for i in range(const.N):
+ for j in range(const.N):
+    if(i==const.N-1 and j!=0 and j!=const.N-1):
+      width = vast.Width( vast.Minus(vast.Identifier('DATAWID'), vast.IntConst('1')), vast.IntConst('0') )
+      east =  vast.Wire("east_out"+str(i)+str(j), width=width)
+      west = vast.Wire("west_out"+str(i)+str(j), width=width)
+      north =  vast.Wire("north_out"+str(i)+str(j), width=width)
+      northeast =  vast.Wire("northeast_out"+str(i)+str(j), width=width)
+      northwest =  vast.Wire("northwest_out"+str(i)+str(j), width=width)      
+      #south =  vast.Reg("south_in"+str(i)+str(j), width=width)
+      f73()
+
+def f83():
+ ports0 = vast.Portlist( [east] )
+ ports1 = vast.Portlist( [west] )
+ ports2 = vast.Portlist( [north] )
+ ports3 = vast.Portlist( [south] )
+ ports4 = vast.Portlist( [northeast] ) 
+ ports5 = vast.Portlist( [northwest] )  
+ ports6 = vast.Portlist( [southeast] )   
+ ports7 = vast.Portlist( [southwest] )     
+ #ast = vast.ModuleDef( , ports, , ,)
+ codegen = ASTCodeGenerator()
+ rslt0 = codegen.visit(ports0)
+ rslt1 = codegen.visit(ports1)
+ rslt2 = codegen.visit(ports2)
+ rslt3 = codegen.visit(ports3)
+ rslt4 = codegen.visit(ports4) 
+ rslt5 = codegen.visit(ports5) 
+ rslt6 = codegen.visit(ports6) 
+ rslt7 = codegen.visit(ports7)  
+ print(rslt0)
+ print(rslt1)
+ print(rslt2)
+ print(rslt3)
+ print(rslt4) 
+ print(rslt5)
+ print(rslt6) 
+ print(rslt7) 
+
+#if __name__ == '__main__':
+for i in range(const.N):
+ for j in range(const.N):
+    if(i!=0 and i!=const.N-1 and j!=0 and j!=const.N-1):
+      width = vast.Width( vast.Minus(vast.Identifier('DATAWID'), vast.IntConst('1')), vast.IntConst('0') )
+      east =  vast.Wire("east_out"+str(i)+str(j), width=width)
+      west = vast.Wire("west_out"+str(i)+str(j), width=width)
+      north =  vast.Wire("north_out"+str(i)+str(j), width=width)
+      south =  vast.Wire("south_out"+str(i)+str(j), width=width)
+      northeast =  vast.Wire("northeast_out"+str(i)+str(j), width=width)      
+      northwest =  vast.Wire("northwest_out"+str(i)+str(j), width=width)            
+      southeast =  vast.Wire("southeast_out"+str(i)+str(j), width=width)      
+      southwest =  vast.Wire("southwest_out"+str(i)+str(j), width=width)                  
+      f83()
+
+
+
+for i in range(const.N):
+ for j in range(const.N):
+  if(i==0 and j==0):
+    print("router r_$"+ str(i)+str(j) + '( .clk(clk), .rst(reset),'+".i00"+"(local_in"+str(i)+str(j)+")"+","+".i01"+"(east_in"+str(i)+str(j)+")"+","+".i02"+"("+")"+",")
+    print(".i03"+"("+")"+","+".i04"+"(south_in"+str(i)+str(j)+")"+","+".i05"+"("+")"+","+".i06"+"("+")"+".i07"+"(southeast_in"+str(i)+str(j)+")"+","+".i08"+"("+")"+","+".o00"+"(local_out"+str(i)+str(j)+")"+","+".o01"+"(east_out"+str(i)+str(j)+")"+",")
+    print(".o02"+"("+")"+","+".o03"+"("+")"+","+".o04"+"(south_out"+str(i)+str(j)+")"+","+".o05"+"("+")"+","+".o06"+"("+")"+","+".o07"+"(southeast_out"+str(i)+str(j)+")"+","+".o08"+"("+")"+","+".Write(Write)"+","+".Read(Read)"+');')
+
+  if(i==0 and j==const.N-1):
+    print("router r_$"+ str(i)+str(j)+'( .clk(clk), .rst(reset),'+".i00"+"(local_in"+str(i)+str(j)+")"+","+".i01"+"("+")"+","+".i02"+"(west_in"+str(i)+str(j)+")"+","+".i03"+"("+")"+",")
+    print(".i04"+"(south_in"+str(i)+str(j)+")"+","+".i05"+"("+")"+","+","+".i06"+"("+")"+","+".i07"+"("+")"+","+".i08"+"(southwest_in"+str(i)+str(j)+")"+","+".o00"+"(local_out"+str(i)+str(j)+")"+","+".o01"+"("+")"+","+".o02"+"(west_out"+str(i)+str(j)+")"+","+".o03"+"("+")"+",")
+    print(".o04"+"(south_out"+str(i)+str(j)+")"+","+".o05"+"("+")"+","+".o06"+"("+")"+","+".o07"+"("+")"+","+".o08"+"(southwest_out"+str(i)+str(j)+")"+","+".Write(Write)"+","+".Read(Read)"+');')
+
+  if(i==const.N-1 and j==0):
+    print("router r_$"+ str(i)+str(j)+'( .clk(clk), .rst(reset),'+".i00"+"(local_in"+str(i)+str(j)+")"+","+".i01"+"(east_in"+str(i)+str(j)+")"+","+".i02"+"("+")"+",")
+    print(".i03"+"(north_in"+str(i)+str(j)+")"+","+".i04"+"("+")"+","+".i05"+"(northeast_in"+str(i)+str(j)+")"+","+".i06"+"("+")"+","+".i07"+"("+")"+","+".i08"+"("+")"+","
+        +".o00"+"(local_out"+str(i)+str(j)+")"+","+".o01"+"(east_out"+str(i)+str(j)+")"+","+".o02"+"("+")"+",")
+    print(".o03"+"(north_out"+str(i)+str(j)+")"+","+".o04"+"("+")"+","+".o05"+"(northeast_in"+str(i)+str(j)+")"+","+".o06"+"("+")"+","+".o07"+"("+")"+","+".o08"+"("+")"+","+".Write(Write)"+","+".Read(Read)"+');')
+
+#P
+  if(i==const.N-1 and j==const.N-1):
+    print("router r_$"+ str(i)+str(j)+'( .clk(clk), .rst(reset),'+".i00"+"(local_in"+str(i)+str(j)+")"+","+".i01"+"("+")"+","+".i02"+"(west_in"+str(i)+str(j)+")"+",")
+    print(".i03"+"(north_in"+str(i)+str(j)+")"+","+".i04"+"("+")"+","+".i05"+"("+")"+","+".i06"+"(northwest_in"+str(i)+str(j)+")"+","+".o00"+"(local_out"+str(i)+str(j)+")"+","+".o01"+"("+")"+","+".o02"+"(west_out"+str(i)+str(j)+")"+",")
+    print(".o03"+"(north_out"+str(i)+str(j)+")"+","+".o04"+"("+")"+","+".o05"+"("+")"+","+".o06"+"(northwest_out"+str(i)+str(j)+")"+","+".o07"+"("+")"+","+".o08"+"("+")"+","+".Write(Write)"+","+".Read(Read)"+');')
+
+  if(j==0 and i!=0 and i!=const.N-1):
+    print("router r_$"+ str(i)+str(j)+'( .clk(clk), .rst(reset),'+".i00"+"(local_in"+str(i)+str(j)+")"+","+".i01"+"(east_in"+str(i)+str(j+1)+")"+","+".i02"+"("+")"+"," )   
+    print(".i03"+"(north_in"+str(i)+str(j)+")"+","+".i04"+"(south_in"+str(i)+str(j)+")"+","+".i05"+"(northeast_in"+str(i)+str(j)+")"+","+".i06"+"("+")"+","+".i07"+"(southeast_in"+str(i)+str(j)+")"+","+","+".i08"+"("+")"+","+".o00"+"(local_out"+str(i)+str(j)+")"+","+".o01"+"(east_out"+str(i)+str(j)+")"+",")
+    print(".o02"+"("+")"+","+".o03"+"(north_out"+str(i)+str(j)+")"+","+".o04"+"(south_out"+str(i)+str(j)+")"+","+".o05"+"(northeast_out"+str(i)+str(j)+")"+","+".o06"+"("+")"+","+".o07"+"(southeast_out"+str(i)+str(j)+")"+","+".o08"+"("+")"+","+".Write(Write)"+","+".Read(Read)"+');')
+
+
+  if(j==const.N-1 and i!=0 and i!=const.N-1):
+    print("router r_$"+ str(i)+str(j)+'( .clk(clk), .rst(reset),'+".i00"+"(local_in"+str(i)+str(j)+")"+","+".i01"+"("+")"+","+".i02"+"(west_in"+str(i)+str(j)+")"+",")
+    print(".i03"+"(north_in"+str(i)+str(j)+")"+","+".i04"+"(south_in"+str(i)+str(j)+")"+","+".i05"+"("+")"+","+".i06"+"(northwest_in"+str(i)+str(j)+")"+","+".i07"+"("+")"+","+".i08"+"(southwest_in"+str(i)+str(j)+")"+","+".o00"+"(local_out"+str(i)+str(j)+")"+","+".o01"+"("+")"+",")
+    print(".o02"+"(west_out"+str(i)+str(j)+")"+","+".o03"+"(north_out"+str(i)+str(j)+")"+","+".o04"+"(south_out"+str(i)+str(j)+")"+","+".o05"+"("+")"+","+".o06"+"(northwest_out"+str(i)+str(j)+")"+","+".o07"+"("+")"+","+".o08"+"(southwest_out"+str(i)+str(j)+")"+","+".Write(Write)"+","+".Read(Read)"+');')
+
+    
+#    print(".o02"+"(west_out"+str(i)+str(j-1)+")"+","+".o03"+"(north_out"+str(i-1)+str(j)+")"+","+".o04"+"(south_out"+str(i+)+str(j)+")"+","+".o05"+"("+")"+","+".o06"+"(northwest_out"+str(i-1)+str(j-1)+")"+","+".o07"+"(southwest_out"+str(i+1)+str(j-1)+")"+","+".Write(Write)"+","+".Read(Read)"+');')
+
+
+  if(i==0 and j!=0 and j!=const.N-1):
+    print("router r_$"+ str(i)+str(j)+'( .clk(clk), .rst(reset),'+".i00"+"(local_in"+str(i)+str(j)+")"+","+".i01"+"(east_in"+str(i)+str(j)+")"+","+".i02"+"(west_in"+str(i)+str(j)+")"+",")
+    print(".i03"+"("+")"+","+".i04"+"(south_in"+str(i)+str(j)+")"+","+".i05"+"("+")"+","+".i06"+"("+")"+","+".i07"+"(southeast_in"+str(i)+str(j)+")"+","+".i08"+"(southwest_in"+str(i)+str(j)+")"+","+".o00"+"(local_out"+str(i)+str(j)+")"+","+".o01"+"(east_out"+str(i)+str(j)+")"+",")
+    print(".o02"+"(west_out"+str(i)+str(j)+")"+","+".o03"+"("+")"+","+".o04"+"(south_out"+str(i)+str(j)+")"+","+".o05"+"("+")"+","+".o06"+"("+")"+","+".o07"+"(southeast_out"+str(i)+str(j)+")"+","+".o08"+"(southwest_out"+str(i)+str(j)+")"+","+".Write(Write)"+","+".Read(Read)"+');')
+
+
+  if(i==const.N-1 and j!=0 and j!=const.N-1):
+    print("router r_$"+ str(i)+str(j)+'( .clk(clk), .rst(reset),'+".i00"+"(local_in"+str(i)+str(j)+")"+","+".i01"+"(east_in"+str(i)+str(j)+")"+","+".i02"+"(west_in"+str(i)+str(j)+")"+",")
+    print(".i03"+"(north_in"+str(i)+str(j)+")"+","+".i04"+"("+")"+","+".i05"+"(northeast_in"+str(i)+str(j)+")"+","+".i06"+"(northwest_in"+str(i)+str(j)+")"+","+","+".i07"+"("+")"+","+","+".i08"+"("+")"+","+".o00"+"(local_out"+str(i)+str(j)+")"+","+".o01"+"(east_out"+str(i)+str(j)+")"+",")
+    print(".o02"+"(west_out"+str(i)+str(j)+")"+","+".o03"+"(north_out"+str(i)+str(j)+")"+","+".o04"+"("+")"+","+".o05"+"(northeast_out"+str(i)+str(j)+")"+","+".o06"+"(northwest_out"+str(i)+str(j)+")"+","+".o07"+"("+")"+","+".o08"+"("+")"+","+".Write(Write)"+","+".Read(Read)"+');')
+
+
+  if(i!=0 and i!=const.N-1 and j!=0 and j!=const.N-1):
+    print("router r_$"+ str(i)+str(j)+'( .clk(clk), .rst(reset),'+".i00"+"(local_in"+str(i)+str(j)+")"+","+".i01"+"(east_in"+str(i)+str(j)+")"+","+".i02"+"(west_in"+str(i)+str(j)+")"+",")
+    print(".i03"+"(north_in"+str(i)+str(j)+")"+","+".i04"+"(south_in"+str(i)+str(j)+")"+","+".i05"+"(northeast_in"+str(i)+str(j)+")"+","+".i06"+"(northwest_in"+str(i)+str(j)+")"+","+".i07"+"(southeast_in"+str(i)+str(j)+")"+","+".i08"+"(southwest_in"+str(i)+str(j)+")"+","+".o00"+"(local_out"+str(i)+str(j)+")"+","+".o01"+"(east_out"+str(i)+str(j)+")"+",")
+    print(".o02"+"(west_out"+str(i)+str(j)+")"+","+".o03"+"(north_out"+str(i)+str(j)+")"+","+".o04"+"(south_out"+str(i)+str(j)+")"+","+".o05"+"(northeast_out"+str(i)+str(j)+")"+","+".o06"+"(northwest_out"+str(i)+str(j)+")"+","+".o07"+"(southeast_out"+str(i)+str(j)+")"+","+".o08"+"(southwest_out"+str(i)+str(j)+")"+","+".Write(Write)"+","+".Read(Read)"+');')
+
+#    print(".o02"+"(west_out"+str(i)+str(j-1)+")"+","+".o03"+"(north_out"+str(i-1)+str(j)+")"+","+".o04"+"(south_out"+str(i+1)+str(j)+")"+","+".o05"+"(northeast_out"+str(i-1)+str(j+1)+")"+","+".o06"+"(northwest_out"+str(i-1)+str(j-1)+")"+","+".o07"+"(southeast_out"+str(i+1)+str(j+1)+")"+","+".o08"+"(southwest_out"+str(i+1)+str(j-1)+")"+","+".Write(Write)"+","+".Read(Read)"+');')
+
+def f4():
+ print("always @ ( posedge clk)") 
+ print("begin")
+
+for j in range(1):
+ f4()
+
+for i in range(const.N):
+ for j in range(const.N):
+  if(i==0 and j==0):
+   print("west_in"+str(i)+str(j+1)+"<="+"east_out"+str(i)+str(j)+";")
+   print("north_in"+str(i+1)+str(j)+"<="+"south_out"+str(i)+str(j)+";")
+   print("northwest_in"+str(i+1)+str(j+1)+"<="+"southeast_out"+str(i)+str(j)+";")
+
+  if(i==0 and j==const.N-1):
+   print(" east_in"+str(i)+str(j-1)+"<="+"west_out"+str(i)+str(j)+";")
+   print(" north_in"+str(i+1)+str(j)+"<="+"south_out"+str(i)+str(j)+";")
+   print(" northeast_in"+str(i+1)+str(j-1)+"<="+"southwest_out"+str(i)+str(j)+";")
+
+  if(i==const.N-1 and j==0):
+   print(" west_in"+str(i)+str(j+1)+"<="+"east_out"+str(i)+str(j)+";")
+   print(" south_in"+str(i-1)+str(j)+"<="+"north_out"+str(i)+str(j)+";")
+   print(" southwest_in"+str(i-1)+str(j+1)+"<="+"northeast_out"+str(i)+str(j)+";")
+
+  if(i==const.N-1 and j==const.N-1):
+   print(" east_in"+str(i)+str(j-1)+"<="+"west_out"+str(i)+str(j)+";")
+   print(" south_in"+str(i-1)+str(j)+"<="+"north_out"+str(i)+str(j)+";")
+   print(" southeast_in"+str(i-1)+str(j-1)+"<="+"northwest_out"+str(i)+str(j)+";")
+   
+  if(j==0 and i!=0 and i!=const.N-1):
+    print(" west_in"+str(i)+str(j+1)+"<="+"east_out"+str(i)+str(j)+";")
+    print(" south_in"+str(i-1)+str(j)+"<="+"north_out"+str(i)+str(j)+";")
+    print(" north_in"+str(i+1)+str(j)+"<="+"south_out"+str(i)+str(j)+";")
+    print(" southwest_in"+str(i-1)+str(j+1)+"<="+"northeast_out"+str(i)+str(j)+";")
+    print(" northwest_in"+str(i+1)+str(j+1)+"<="+"southeast_out"+str(i)+str(j)+";")
+
+  if(j==const.N-1 and i!=0 and i!=const.N-1):
+    print(" east_in"+str(i)+str(j-1)+"<="+"west_out"+str(i)+str(j)+";")
+    print(" south_in"+str(i-1)+str(j)+"<="+"north_out"+str(i)+str(j)+";")
+    print(" north_in"+str(i+1)+str(j)+"<="+"south_out"+str(i)+str(j)+";")
+    print(" southeast_in"+str(i-1)+str(j-1)+"<="+"northwest_out"+str(i)+str(j)+";")
+    print(" northeast_in"+str(i+1)+str(j-1)+"<="+"southwest_out"+str(i)+str(j)+";")
+
+  if(i==0 and j!=0 and j!=const.N-1):
+    print(" west_in"+str(i)+str(j+1)+"<="+"east_out"+str(i)+str(j)+";")
+    print(" east_in"+str(i)+str(j-1)+"<="+"west_out"+str(i)+str(j)+";")
+    print(" north_in"+str(i+1)+str(j)+"<="+"south_out"+str(i)+str(j)+";")
+    print(" northwest_in"+str(i+1)+str(j+1)+"<="+"southeast_out"+str(i)+str(j)+";")
+    print(" northeast_in"+str(i+1)+str(j-1)+"<="+"southwest_out"+str(i)+str(j)+";")
+
+  if(i==const.N-1 and j!=0 and j!=const.N-1):
+    print(" west_in"+str(i)+str(j+1)+"<="+"east_out"+str(i)+str(j)+";")
+    print(" east_in"+str(i)+str(j-1)+"<="+"west_out"+str(i)+str(j)+";")
+    print(" south_in"+str(i-1)+str(j)+"<="+"north_out"+str(i)+str(j)+";")
+    print(" southeast_in"+str(i-1)+str(j-1)+"<="+"northwest_out"+str(i)+str(j)+";")
+    print(" southwest_in"+str(i-1)+str(j+1)+"<="+"northeast_out"+str(i)+str(j)+";")
+
+
+
+  if(i!=0 and i!=const.N-1 and j!=0 and j!=const.N-1):
+    print(" west_in"+str(i)+str(j+1)+"<="+"east_out"+str(i)+str(j)+";")
+    print(" east_in"+str(i)+str(j-1)+"<="+"west_out"+str(i)+str(j)+";")
+    print(" south_in"+str(i-1)+str(j)+"<="+"north_out"+str(i)+str(j)+";")
+    print(" north_in"+str(i+1)+str(j)+"<="+"south_out"+str(i)+str(j)+";")
+    print(" northeast_in"+str(i+1)+str(j-1)+"<="+"southwest_out"+str(i)+str(j)+";")    
+    print(" northwest_in"+str(i+1)+str(j+1)+"<="+"southeast_out"+str(i)+str(j)+";")    
+    print(" southeast_in"+str(i-1)+str(j-1)+"<="+"northwest_out"+str(i)+str(j)+";")    
+    print(" southwest_in"+str(i-1)+str(j+1)+"<="+"northeast_out"+str(i)+str(j)+";")        
+
+def f5():
+  print("end")
+for j in range(1):
+  f5()  
+
+
+def f6():
+  print("endmodule")
+for j in range(1):
+  f6()

@@ -1,0 +1,139 @@
+`timescale 1ns / 1ps
+
+////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:
+//
+// Create Date:   12:23:19 08/25/2016
+// Design Name:   compute
+// Module Name:   /compute1/top.v
+// Project Name:  compute1
+// Target Device:  
+// Tool versions:  
+// Description: 
+//
+// Verilog Test Fixture created by ISE for module: compute
+//
+// Dependencies:
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+////////////////////////////////////////////////////////////////////////////////
+
+module top;
+
+	// Inputs
+	reg clk;
+	reg rst;
+	reg req3;
+	reg req2;
+	reg req1;
+	reg req0;
+
+	// Outputs
+	wire gnt3;
+	wire gnt2;
+	wire gnt1;
+	wire gnt0;
+	wire temp;
+
+	// Instantiate the Unit Under Test (UUT)
+	compute uut (
+		.clk(clk), 
+		.rst(rst), 
+		.req3(req3), 
+		.req2(req2), 
+		.req1(req1), 
+		.req0(req0), 
+		.gnt3(gnt3), 
+		.gnt2(gnt2), 
+		.gnt1(gnt1), 
+		.gnt0(gnt0),
+		.temp(temp)
+	);
+
+	always #1 clk = ~clk;
+
+initial begin
+//$display("time , %t" ,$time);
+  clk = 0;
+  rst = 1;
+  req0 = 0;
+  req1 = 0;
+  req2 = 0;
+  req3 = 0;
+   
+  #10 rst = 0;
+	 
+  repeat (1) @ (posedge clk);
+  req0 <= 1;
+  $display("req0 = %b\n", req0);
+  
+  repeat (1) @ (posedge clk);
+  req0 <= 0;
+  req1 <= 1;
+  $display("req0 = %b\n", req0);
+  $display("req1 = %b\n", req1);
+  
+  
+  repeat (1) @ (posedge clk);
+  req1 <= 0;
+  req2 <= 1;
+
+  repeat (1) @ (posedge clk);
+  req2 <= 0;
+    
+  repeat (1) @ (posedge clk);
+  req2 <= 1;
+  req1 <= 1;
+  
+  repeat (1) @ (posedge clk);
+  req2 <= 0;
+  req1 <= 1;
+  
+  repeat (1) @ (posedge clk);
+  req1 <= 0;
+  req3 <= 1;
+
+  repeat (1) @ (posedge clk);
+  req3 <= 0;
+  
+  repeat (1) @ (posedge clk);
+  req0 <= 1;
+  
+  repeat (1) @ (posedge clk);
+  req0 <= 0;
+  
+  repeat (1) @ (posedge clk);
+  req0 <= 1;
+  req1 <= 1;
+  
+  repeat (1) @ (posedge clk);
+  req2 <= 1;
+  req1 <= 0;
+  
+  repeat (1) @ (posedge clk);
+  req3 <= 1;
+  req2 <= 0;
+  
+  repeat (1) @ (posedge clk);
+  req3 <= 0;
+  
+  repeat (1) @ (posedge clk);
+  req0 <= 0;
+  
+  repeat (1) @ (posedge clk);
+  req0 <= 0;
+   req1 <= 0;
+	 req2 <= 0;
+	  req3 <= 0;
+	 
+  #10 $finish;
+end 
+
+      
+endmodule
+
+

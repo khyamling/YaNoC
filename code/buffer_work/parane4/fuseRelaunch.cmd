@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "/parane4/testFifoSynch_isim_beh.exe" -prj "/parane4/testFifoSynch_beh.prj" "work.testFifoSynch" "work.glbl" 

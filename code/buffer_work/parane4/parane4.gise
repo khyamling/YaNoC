@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<generated_project xmlns="http://www.xilinx.com/XMLSchema" xmlns:xil_pn="http://www.xilinx.com/XMLSchema">
+
+  <!--                                                          -->
+
+  <!--             For tool use only. Do not edit.              -->
+
+  <!--                                                          -->
+
+  <!-- ProjectNavigator created generated project file.         -->
+
+  <!-- For use in tracking generated file and other information -->
+
+  <!-- allowing preservation of process status.                 -->
+
+  <!--                                                          -->
+
+  <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved. -->
+
+  <version xmlns="http://www.xilinx.com/XMLSchema">11.1</version>
+
+  <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="/parane4/parane4.xise"/>
+
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="/parane4/_ngo"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="/parane4/_xmsgs/map.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="/parane4/_xmsgs/ngdbuild.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="/parane4/_xmsgs/par.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="/parane4/_xmsgs/trce.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="/parane4/_xmsgs/xst.xmsgs"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="/parane4/fifoSynch.bld"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="/parane4/fifoSynch.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="/parane4/fifoSynch.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="/parane4/fifoSynch.ncd" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="/parane4/fifoSynch.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="/parane4/fifoSynch.ngd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="/parane4/fifoSynch.ngr"/>
+    <file xil_pn:fileType="FILE_PAD_MISC" xil_pn:name="/parane4/fifoSynch.pad"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAR_REPORT" xil_pn:name="/parane4/fifoSynch.par" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PCF" xil_pn:name="/parane4/fifoSynch.pcf" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="/parane4/fifoSynch.prj"/>
+    <file xil_pn:fileType="FILE_TRCE_MISC" xil_pn:name="/parane4/fifoSynch.ptwx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="/parane4/fifoSynch.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="/parane4/fifoSynch.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_TXT_REPORT" xil_pn:name="/parane4/fifoSynch.twr" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_XML_REPORT" xil_pn:name="/parane4/fifoSynch.twx" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_UNROUTES" xil_pn:name="/parane4/fifoSynch.unroutes" xil_pn:subbranch="Par"/>
+    <file xil_pn:fileType="FILE_XPI" xil_pn:name="/parane4/fifoSynch.xpi"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="/parane4/fifoSynch.xst"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="/parane4/fifoSynch_envsettings.html"/>
+    <file xil_pn:fileType="FILE_NCD" xil_pn:name="/parane4/fifoSynch_guide.ncd" xil_pn:origination="imported"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="/parane4/fifoSynch_map.map" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="/parane4/fifoSynch_map.mrp" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="/parane4/fifoSynch_map.ncd" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="/parane4/fifoSynch_map.ngm" xil_pn:subbranch="Map"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="/parane4/fifoSynch_map.xrpt"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="/parane4/fifoSynch_ngdbuild.xrpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="/parane4/fifoSynch_pad.csv" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="/parane4/fifoSynch_pad.txt" xil_pn:subbranch="Par"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="/parane4/fifoSynch_par.xrpt"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="/parane4/fifoSynch_summary.html"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="/parane4/fifoSynch_summary.xml"/>
+    <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="/parane4/fifoSynch_usage.xml"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="/parane4/fifoSynch_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="/parane4/fuse.log"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="/parane4/isim"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="/parane4/isim.cmd"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="/parane4/isim.log"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="/parane4/testFifoSynch_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="/parane4/testFifoSynch_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="/parane4/testFifoSynch_isim_beh.wdb"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="/parane4/testFifoSynch_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="/parane4/webtalk_pn.xml"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="/parane4/xilinxsim.ini"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="/parane4/xlnx_auto_0_xdb"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="/parane4/xst"/>
+  </files>
+
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1469513054" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1469513054">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1469513054" xil_pn:in_ck="1293529642386099898" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1469513054">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="/parane4/fifoSynch.v"/>
+      <outfile xil_pn:name="/parane4/testFifoSynch.v"/>
+    </transform>
+    <transform xil_pn:end_ts="1469513054" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-3313323481427655424" xil_pn:start_ts="1469513054">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1469513054" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="1441294338023496102" xil_pn:start_ts="1469513054">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1469513054" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="8572859652600717942" xil_pn:start_ts="1469513054">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1469513054" xil_pn:in_ck="1293529642386099898" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1469513054">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="/parane4/fifoSynch.v"/>
+      <outfile xil_pn:name="/parane4/testFifoSynch.v"/>
+    </transform>
+    <transform xil_pn:end_ts="1469513056" xil_pn:in_ck="1293529642386099898" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-1304170099248811011" xil_pn:start_ts="1469513054">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="/parane4/fuse.log"/>
+      <outfile xil_pn:name="/parane4/isim"/>
+      <outfile xil_pn:name="/parane4/isim.log"/>
+      <outfile xil_pn:name="/parane4/testFifoSynch_beh.prj"/>
+      <outfile xil_pn:name="/parane4/testFifoSynch_isim_beh.exe"/>
+      <outfile xil_pn:name="/parane4/xilinxsim.ini"/>
+    </transform>
+    <transform xil_pn:end_ts="1472057691" xil_pn:in_ck="1094578056376767896" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-5729896099999566592" xil_pn:start_ts="1472057691">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="/parane4/isim.cmd"/>
+      <outfile xil_pn:name="/parane4/isim.log"/>
+      <outfile xil_pn:name="/parane4/testFifoSynch_isim_beh.wdb"/>
+    </transform>
+    <transform xil_pn:end_ts="1469378865" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="1411908382804586854" xil_pn:start_ts="1469378865">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1469378865" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="8572859652600717942" xil_pn:start_ts="1469378865">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1469378865" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1469378865">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1469378865" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="-6450259883238826176" xil_pn:start_ts="1469378865">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1469378865" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="-1631171048652621028" xil_pn:start_ts="1469378865">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1469378865" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="-1087918844702285632" xil_pn:start_ts="1469378865">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1469513030" xil_pn:in_ck="161242558746757837" xil_pn:name="TRANEXT_xstsynthesize_spartan3" xil_pn:prop_ck="-640002790283138557" xil_pn:start_ts="1469513023">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="/parane4/_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="/parane4/fifoSynch.lso"/>
+      <outfile xil_pn:name="/parane4/fifoSynch.ngc"/>
+      <outfile xil_pn:name="/parane4/fifoSynch.ngr"/>
+      <outfile xil_pn:name="/parane4/fifoSynch.prj"/>
+      <outfile xil_pn:name="/parane4/fifoSynch.stx"/>
+      <outfile xil_pn:name="/parane4/fifoSynch.syr"/>
+      <outfile xil_pn:name="/parane4/fifoSynch.xst"/>
+      <outfile xil_pn:name="/parane4/fifoSynch_xst.xrpt"/>
+      <outfile xil_pn:name="/parane4/webtalk_pn.xml"/>
+      <outfile xil_pn:name="/parane4/xst"/>
+    </transform>
+    <transform xil_pn:end_ts="1469378870" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-8119206953173884949" xil_pn:start_ts="1469378870">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1469513034" xil_pn:in_ck="-8874294261876236881" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-7491314494893203359" xil_pn:start_ts="1469513030">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="/parane4/_ngo"/>
+      <outfile xil_pn:name="/parane4/_xmsgs/ngdbuild.xmsgs"/>
+      <outfile xil_pn:name="/parane4/fifoSynch.bld"/>
+      <outfile xil_pn:name="/parane4/fifoSynch.ngd"/>
+      <outfile xil_pn:name="/parane4/fifoSynch_ngdbuild.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1469513038" xil_pn:in_ck="-8874294261876236880" xil_pn:name="TRANEXT_map_spartan3" xil_pn:prop_ck="-1511646464618937763" xil_pn:start_ts="1469513034">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="/parane4/_xmsgs/map.xmsgs"/>
+      <outfile xil_pn:name="/parane4/fifoSynch.pcf"/>
+      <outfile xil_pn:name="/parane4/fifoSynch_map.map"/>
+      <outfile xil_pn:name="/parane4/fifoSynch_map.mrp"/>
+      <outfile xil_pn:name="/parane4/fifoSynch_map.ncd"/>
+      <outfile xil_pn:name="/parane4/fifoSynch_map.ngm"/>
+      <outfile xil_pn:name="/parane4/fifoSynch_map.xrpt"/>
+      <outfile xil_pn:name="/parane4/fifoSynch_summary.xml"/>
+      <outfile xil_pn:name="/parane4/fifoSynch_usage.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1469513046" xil_pn:in_ck="6056852257754875081" xil_pn:name="TRANEXT_par_spartan3" xil_pn:prop_ck="-9205546088161756772" xil_pn:start_ts="1469513038">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="/parane4/_xmsgs/par.xmsgs"/>
+      <outfile xil_pn:name="/parane4/fifoSynch.ncd"/>
+      <outfile xil_pn:name="/parane4/fifoSynch.pad"/>
+      <outfile xil_pn:name="/parane4/fifoSynch.par"/>
+      <outfile xil_pn:name="/parane4/fifoSynch.ptwx"/>
+      <outfile xil_pn:name="/parane4/fifoSynch.unroutes"/>
+      <outfile xil_pn:name="/parane4/fifoSynch.xpi"/>
+      <outfile xil_pn:name="/parane4/fifoSynch_pad.csv"/>
+      <outfile xil_pn:name="/parane4/fifoSynch_pad.txt"/>
+      <outfile xil_pn:name="/parane4/fifoSynch_par.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1469513046" xil_pn:in_ck="-8874294261876237012" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416186" xil_pn:start_ts="1469513045">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="/parane4/_xmsgs/trce.xmsgs"/>
+      <outfile xil_pn:name="/parane4/fifoSynch.twr"/>
+      <outfile xil_pn:name="/parane4/fifoSynch.twx"/>
+    </transform>
+  </transforms>
+
+</generated_project>

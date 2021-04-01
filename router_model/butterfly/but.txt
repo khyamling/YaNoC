@@ -1,0 +1,1048 @@
+module butterfly (
+port0_input00,port1_input00,
+port0_input10,port1_input10,
+port0_input20,port1_input20,
+port0_input30,port1_input30,
+port0_input40,port1_input40,
+port0_input50,port1_input50,
+port0_input60,port1_input60,
+port0_input70,port1_input70,
+port0_input80,port1_input80,
+port0_input90,port1_input90,
+port0_input100,port1_input100,
+port0_input110,port1_input110,
+port0_input120,port1_input120,
+port0_input130,port1_input130,
+port0_input140,port1_input140,
+port0_input150,port1_input150,
+port0_output04,port1_output04,
+port0_output14,port1_output14,
+port0_output24,port1_output24,
+port0_output34,port1_output34,
+port0_output44,port1_output44,
+port0_output54,port1_output54,
+port0_output64,port1_output64,
+port0_output74,port1_output74,
+port0_output84,port1_output84,
+port0_output94,port1_output94,
+port0_output104,port1_output104,
+port0_output114,port1_output114,
+port0_output124,port1_output124,
+port0_output134,port1_output134,
+port0_output144,port1_output144,
+port0_output154,port1_output154,
+clk, reset,  Write, Read);
+input clk, rst, Write, Read; 
+parameter DATAWID = 8;
+input [DATAWID-1:0] port0_input00;
+input [DATAWID-1:0] port1_input00;
+input [DATAWID-1:0] port0_input10;
+input [DATAWID-1:0] port1_input10;
+input [DATAWID-1:0] port0_input20;
+input [DATAWID-1:0] port1_input20;
+input [DATAWID-1:0] port0_input30;
+input [DATAWID-1:0] port1_input30;
+input [DATAWID-1:0] port0_input40;
+input [DATAWID-1:0] port1_input40;
+input [DATAWID-1:0] port0_input50;
+input [DATAWID-1:0] port1_input50;
+input [DATAWID-1:0] port0_input60;
+input [DATAWID-1:0] port1_input60;
+input [DATAWID-1:0] port0_input70;
+input [DATAWID-1:0] port1_input70;
+input [DATAWID-1:0] port0_input80;
+input [DATAWID-1:0] port1_input80;
+input [DATAWID-1:0] port0_input90;
+input [DATAWID-1:0] port1_input90;
+input [DATAWID-1:0] port0_input100;
+input [DATAWID-1:0] port1_input100;
+input [DATAWID-1:0] port0_input110;
+input [DATAWID-1:0] port1_input110;
+input [DATAWID-1:0] port0_input120;
+input [DATAWID-1:0] port1_input120;
+input [DATAWID-1:0] port0_input130;
+input [DATAWID-1:0] port1_input130;
+input [DATAWID-1:0] port0_input140;
+input [DATAWID-1:0] port1_input140;
+input [DATAWID-1:0] port0_input150;
+input [DATAWID-1:0] port1_input150;
+output [DATAWID-1:0] port0_output04;
+output [DATAWID-1:0] port1_output04;
+output [DATAWID-1:0] port0_output14;
+output [DATAWID-1:0] port1_output14;
+output [DATAWID-1:0] port0_output24;
+output [DATAWID-1:0] port1_output24;
+output [DATAWID-1:0] port0_output34;
+output [DATAWID-1:0] port1_output34;
+output [DATAWID-1:0] port0_output44;
+output [DATAWID-1:0] port1_output44;
+output [DATAWID-1:0] port0_output54;
+output [DATAWID-1:0] port1_output54;
+output [DATAWID-1:0] port0_output64;
+output [DATAWID-1:0] port1_output64;
+output [DATAWID-1:0] port0_output74;
+output [DATAWID-1:0] port1_output74;
+output [DATAWID-1:0] port0_output84;
+output [DATAWID-1:0] port1_output84;
+output [DATAWID-1:0] port0_output94;
+output [DATAWID-1:0] port1_output94;
+output [DATAWID-1:0] port0_output104;
+output [DATAWID-1:0] port1_output104;
+output [DATAWID-1:0] port0_output114;
+output [DATAWID-1:0] port1_output114;
+output [DATAWID-1:0] port0_output124;
+output [DATAWID-1:0] port1_output124;
+output [DATAWID-1:0] port0_output134;
+output [DATAWID-1:0] port1_output134;
+output [DATAWID-1:0] port0_output144;
+output [DATAWID-1:0] port1_output144;
+output [DATAWID-1:0] port0_output154;
+output [DATAWID-1:0] port1_output154;
+wire [DATAWID-1:0] port0_output00;
+wire [DATAWID-1:0] port1_output00;
+wire [DATAWID-1:0] port0_output10;
+wire [DATAWID-1:0] port1_output10;
+wire [DATAWID-1:0] port0_output20;
+wire [DATAWID-1:0] port1_output20;
+wire [DATAWID-1:0] port0_output30;
+wire [DATAWID-1:0] port1_output30;
+wire [DATAWID-1:0] port0_output40;
+wire [DATAWID-1:0] port1_output40;
+wire [DATAWID-1:0] port0_output50;
+wire [DATAWID-1:0] port1_output50;
+wire [DATAWID-1:0] port0_output60;
+wire [DATAWID-1:0] port1_output60;
+wire [DATAWID-1:0] port0_output70;
+wire [DATAWID-1:0] port1_output70;
+wire [DATAWID-1:0] port0_output80;
+wire [DATAWID-1:0] port1_output80;
+wire [DATAWID-1:0] port0_output90;
+wire [DATAWID-1:0] port1_output90;
+wire [DATAWID-1:0] port0_output100;
+wire [DATAWID-1:0] port1_output100;
+wire [DATAWID-1:0] port0_output110;
+wire [DATAWID-1:0] port1_output110;
+wire [DATAWID-1:0] port0_output120;
+wire [DATAWID-1:0] port1_output120;
+wire [DATAWID-1:0] port0_output130;
+wire [DATAWID-1:0] port1_output130;
+wire [DATAWID-1:0] port0_output140;
+wire [DATAWID-1:0] port1_output140;
+wire [DATAWID-1:0] port0_output150;
+wire [DATAWID-1:0] port1_output150;
+reg [DATAWID-1:0] port0_input04;
+reg [DATAWID-1:0] port1_input04;
+reg [DATAWID-1:0] port0_input14;
+reg [DATAWID-1:0] port1_input14;
+reg [DATAWID-1:0] port0_input24;
+reg [DATAWID-1:0] port1_input24;
+reg [DATAWID-1:0] port0_input34;
+reg [DATAWID-1:0] port1_input34;
+reg [DATAWID-1:0] port0_input44;
+reg [DATAWID-1:0] port1_input44;
+reg [DATAWID-1:0] port0_input54;
+reg [DATAWID-1:0] port1_input54;
+reg [DATAWID-1:0] port0_input64;
+reg [DATAWID-1:0] port1_input64;
+reg [DATAWID-1:0] port0_input74;
+reg [DATAWID-1:0] port1_input74;
+reg [DATAWID-1:0] port0_input84;
+reg [DATAWID-1:0] port1_input84;
+reg [DATAWID-1:0] port0_input94;
+reg [DATAWID-1:0] port1_input94;
+reg [DATAWID-1:0] port0_input104;
+reg [DATAWID-1:0] port1_input104;
+reg [DATAWID-1:0] port0_input114;
+reg [DATAWID-1:0] port1_input114;
+reg [DATAWID-1:0] port0_input124;
+reg [DATAWID-1:0] port1_input124;
+reg [DATAWID-1:0] port0_input134;
+reg [DATAWID-1:0] port1_input134;
+reg [DATAWID-1:0] port0_input144;
+reg [DATAWID-1:0] port1_input144;
+reg [DATAWID-1:0] port0_input154;
+reg [DATAWID-1:0] port1_input154;
+reg [DATAWID-1:0] port0_input01;
+reg [DATAWID-1:0] port1_input01;
+wire [DATAWID-1:0] port0_output01;
+wire [DATAWID-1:0] port1_output01;
+reg [DATAWID-1:0] port0_input02;
+reg [DATAWID-1:0] port1_input02;
+wire [DATAWID-1:0] port0_output02;
+wire [DATAWID-1:0] port1_output02;
+reg [DATAWID-1:0] port0_input03;
+reg [DATAWID-1:0] port1_input03;
+wire [DATAWID-1:0] port0_output03;
+wire [DATAWID-1:0] port1_output03;
+reg [DATAWID-1:0] port0_input11;
+reg [DATAWID-1:0] port1_input11;
+wire [DATAWID-1:0] port0_output11;
+wire [DATAWID-1:0] port1_output11;
+reg [DATAWID-1:0] port0_input12;
+reg [DATAWID-1:0] port1_input12;
+wire [DATAWID-1:0] port0_output12;
+wire [DATAWID-1:0] port1_output12;
+reg [DATAWID-1:0] port0_input13;
+reg [DATAWID-1:0] port1_input13;
+wire [DATAWID-1:0] port0_output13;
+wire [DATAWID-1:0] port1_output13;
+reg [DATAWID-1:0] port0_input21;
+reg [DATAWID-1:0] port1_input21;
+wire [DATAWID-1:0] port0_output21;
+wire [DATAWID-1:0] port1_output21;
+reg [DATAWID-1:0] port0_input22;
+reg [DATAWID-1:0] port1_input22;
+wire [DATAWID-1:0] port0_output22;
+wire [DATAWID-1:0] port1_output22;
+reg [DATAWID-1:0] port0_input23;
+reg [DATAWID-1:0] port1_input23;
+wire [DATAWID-1:0] port0_output23;
+wire [DATAWID-1:0] port1_output23;
+reg [DATAWID-1:0] port0_input31;
+reg [DATAWID-1:0] port1_input31;
+wire [DATAWID-1:0] port0_output31;
+wire [DATAWID-1:0] port1_output31;
+reg [DATAWID-1:0] port0_input32;
+reg [DATAWID-1:0] port1_input32;
+wire [DATAWID-1:0] port0_output32;
+wire [DATAWID-1:0] port1_output32;
+reg [DATAWID-1:0] port0_input33;
+reg [DATAWID-1:0] port1_input33;
+wire [DATAWID-1:0] port0_output33;
+wire [DATAWID-1:0] port1_output33;
+reg [DATAWID-1:0] port0_input41;
+reg [DATAWID-1:0] port1_input41;
+wire [DATAWID-1:0] port0_output41;
+wire [DATAWID-1:0] port1_output41;
+reg [DATAWID-1:0] port0_input42;
+reg [DATAWID-1:0] port1_input42;
+wire [DATAWID-1:0] port0_output42;
+wire [DATAWID-1:0] port1_output42;
+reg [DATAWID-1:0] port0_input43;
+reg [DATAWID-1:0] port1_input43;
+wire [DATAWID-1:0] port0_output43;
+wire [DATAWID-1:0] port1_output43;
+reg [DATAWID-1:0] port0_input51;
+reg [DATAWID-1:0] port1_input51;
+wire [DATAWID-1:0] port0_output51;
+wire [DATAWID-1:0] port1_output51;
+reg [DATAWID-1:0] port0_input52;
+reg [DATAWID-1:0] port1_input52;
+wire [DATAWID-1:0] port0_output52;
+wire [DATAWID-1:0] port1_output52;
+reg [DATAWID-1:0] port0_input53;
+reg [DATAWID-1:0] port1_input53;
+wire [DATAWID-1:0] port0_output53;
+wire [DATAWID-1:0] port1_output53;
+reg [DATAWID-1:0] port0_input61;
+reg [DATAWID-1:0] port1_input61;
+wire [DATAWID-1:0] port0_output61;
+wire [DATAWID-1:0] port1_output61;
+reg [DATAWID-1:0] port0_input62;
+reg [DATAWID-1:0] port1_input62;
+wire [DATAWID-1:0] port0_output62;
+wire [DATAWID-1:0] port1_output62;
+reg [DATAWID-1:0] port0_input63;
+reg [DATAWID-1:0] port1_input63;
+wire [DATAWID-1:0] port0_output63;
+wire [DATAWID-1:0] port1_output63;
+reg [DATAWID-1:0] port0_input71;
+reg [DATAWID-1:0] port1_input71;
+wire [DATAWID-1:0] port0_output71;
+wire [DATAWID-1:0] port1_output71;
+reg [DATAWID-1:0] port0_input72;
+reg [DATAWID-1:0] port1_input72;
+wire [DATAWID-1:0] port0_output72;
+wire [DATAWID-1:0] port1_output72;
+reg [DATAWID-1:0] port0_input73;
+reg [DATAWID-1:0] port1_input73;
+wire [DATAWID-1:0] port0_output73;
+wire [DATAWID-1:0] port1_output73;
+reg [DATAWID-1:0] port0_input81;
+reg [DATAWID-1:0] port1_input81;
+wire [DATAWID-1:0] port0_output81;
+wire [DATAWID-1:0] port1_output81;
+reg [DATAWID-1:0] port0_input82;
+reg [DATAWID-1:0] port1_input82;
+wire [DATAWID-1:0] port0_output82;
+wire [DATAWID-1:0] port1_output82;
+reg [DATAWID-1:0] port0_input83;
+reg [DATAWID-1:0] port1_input83;
+wire [DATAWID-1:0] port0_output83;
+wire [DATAWID-1:0] port1_output83;
+reg [DATAWID-1:0] port0_input91;
+reg [DATAWID-1:0] port1_input91;
+wire [DATAWID-1:0] port0_output91;
+wire [DATAWID-1:0] port1_output91;
+reg [DATAWID-1:0] port0_input92;
+reg [DATAWID-1:0] port1_input92;
+wire [DATAWID-1:0] port0_output92;
+wire [DATAWID-1:0] port1_output92;
+reg [DATAWID-1:0] port0_input93;
+reg [DATAWID-1:0] port1_input93;
+wire [DATAWID-1:0] port0_output93;
+wire [DATAWID-1:0] port1_output93;
+reg [DATAWID-1:0] port0_input101;
+reg [DATAWID-1:0] port1_input101;
+wire [DATAWID-1:0] port0_output101;
+wire [DATAWID-1:0] port1_output101;
+reg [DATAWID-1:0] port0_input102;
+reg [DATAWID-1:0] port1_input102;
+wire [DATAWID-1:0] port0_output102;
+wire [DATAWID-1:0] port1_output102;
+reg [DATAWID-1:0] port0_input103;
+reg [DATAWID-1:0] port1_input103;
+wire [DATAWID-1:0] port0_output103;
+wire [DATAWID-1:0] port1_output103;
+reg [DATAWID-1:0] port0_input111;
+reg [DATAWID-1:0] port1_input111;
+wire [DATAWID-1:0] port0_output111;
+wire [DATAWID-1:0] port1_output111;
+reg [DATAWID-1:0] port0_input112;
+reg [DATAWID-1:0] port1_input112;
+wire [DATAWID-1:0] port0_output112;
+wire [DATAWID-1:0] port1_output112;
+reg [DATAWID-1:0] port0_input113;
+reg [DATAWID-1:0] port1_input113;
+wire [DATAWID-1:0] port0_output113;
+wire [DATAWID-1:0] port1_output113;
+reg [DATAWID-1:0] port0_input121;
+reg [DATAWID-1:0] port1_input121;
+wire [DATAWID-1:0] port0_output121;
+wire [DATAWID-1:0] port1_output121;
+reg [DATAWID-1:0] port0_input122;
+reg [DATAWID-1:0] port1_input122;
+wire [DATAWID-1:0] port0_output122;
+wire [DATAWID-1:0] port1_output122;
+reg [DATAWID-1:0] port0_input123;
+reg [DATAWID-1:0] port1_input123;
+wire [DATAWID-1:0] port0_output123;
+wire [DATAWID-1:0] port1_output123;
+reg [DATAWID-1:0] port0_input131;
+reg [DATAWID-1:0] port1_input131;
+wire [DATAWID-1:0] port0_output131;
+wire [DATAWID-1:0] port1_output131;
+reg [DATAWID-1:0] port0_input132;
+reg [DATAWID-1:0] port1_input132;
+wire [DATAWID-1:0] port0_output132;
+wire [DATAWID-1:0] port1_output132;
+reg [DATAWID-1:0] port0_input133;
+reg [DATAWID-1:0] port1_input133;
+wire [DATAWID-1:0] port0_output133;
+wire [DATAWID-1:0] port1_output133;
+reg [DATAWID-1:0] port0_input141;
+reg [DATAWID-1:0] port1_input141;
+wire [DATAWID-1:0] port0_output141;
+wire [DATAWID-1:0] port1_output141;
+reg [DATAWID-1:0] port0_input142;
+reg [DATAWID-1:0] port1_input142;
+wire [DATAWID-1:0] port0_output142;
+wire [DATAWID-1:0] port1_output142;
+reg [DATAWID-1:0] port0_input143;
+reg [DATAWID-1:0] port1_input143;
+wire [DATAWID-1:0] port0_output143;
+wire [DATAWID-1:0] port1_output143;
+reg [DATAWID-1:0] port0_input151;
+reg [DATAWID-1:0] port1_input151;
+wire [DATAWID-1:0] port0_output151;
+wire [DATAWID-1:0] port1_output151;
+reg [DATAWID-1:0] port0_input152;
+reg [DATAWID-1:0] port1_input152;
+wire [DATAWID-1:0] port0_output152;
+wire [DATAWID-1:0] port1_output152;
+reg [DATAWID-1:0] port0_input153;
+reg [DATAWID-1:0] port1_input153;
+wire [DATAWID-1:0] port0_output153;
+wire [DATAWID-1:0] port1_output153;
+router r00
+( .clk(clk), .rst(reset),
+.i00(port0_input00),
+.i01(port1_input00),
+.o01(port0_output00),
+.o02(port1_output00)
+);
+router r04
+( .clk(clk), .rst(reset),
+.i00(port0_input04),
+.i01(port1_input04),
+.o01(port0_output04),
+.o02(port1_output04)
+);
+router r10
+( .clk(clk), .rst(reset),
+.i00(port0_input10),
+.i01(port1_input10),
+.o01(port0_output10),
+.o02(port1_output10)
+);
+router r14
+( .clk(clk), .rst(reset),
+.i00(port0_input14),
+.i01(port1_input14),
+.o01(port0_output14),
+.o02(port1_output14)
+);
+router r20
+( .clk(clk), .rst(reset),
+.i00(port0_input20),
+.i01(port1_input20),
+.o01(port0_output20),
+.o02(port1_output20)
+);
+router r24
+( .clk(clk), .rst(reset),
+.i00(port0_input24),
+.i01(port1_input24),
+.o01(port0_output24),
+.o02(port1_output24)
+);
+router r30
+( .clk(clk), .rst(reset),
+.i00(port0_input30),
+.i01(port1_input30),
+.o01(port0_output30),
+.o02(port1_output30)
+);
+router r34
+( .clk(clk), .rst(reset),
+.i00(port0_input34),
+.i01(port1_input34),
+.o01(port0_output34),
+.o02(port1_output34)
+);
+router r40
+( .clk(clk), .rst(reset),
+.i00(port0_input40),
+.i01(port1_input40),
+.o01(port0_output40),
+.o02(port1_output40)
+);
+router r44
+( .clk(clk), .rst(reset),
+.i00(port0_input44),
+.i01(port1_input44),
+.o01(port0_output44),
+.o02(port1_output44)
+);
+router r50
+( .clk(clk), .rst(reset),
+.i00(port0_input50),
+.i01(port1_input50),
+.o01(port0_output50),
+.o02(port1_output50)
+);
+router r54
+( .clk(clk), .rst(reset),
+.i00(port0_input54),
+.i01(port1_input54),
+.o01(port0_output54),
+.o02(port1_output54)
+);
+router r60
+( .clk(clk), .rst(reset),
+.i00(port0_input60),
+.i01(port1_input60),
+.o01(port0_output60),
+.o02(port1_output60)
+);
+router r64
+( .clk(clk), .rst(reset),
+.i00(port0_input64),
+.i01(port1_input64),
+.o01(port0_output64),
+.o02(port1_output64)
+);
+router r70
+( .clk(clk), .rst(reset),
+.i00(port0_input70),
+.i01(port1_input70),
+.o01(port0_output70),
+.o02(port1_output70)
+);
+router r74
+( .clk(clk), .rst(reset),
+.i00(port0_input74),
+.i01(port1_input74),
+.o01(port0_output74),
+.o02(port1_output74)
+);
+router r80
+( .clk(clk), .rst(reset),
+.i00(port0_input80),
+.i01(port1_input80),
+.o01(port0_output80),
+.o02(port1_output80)
+);
+router r84
+( .clk(clk), .rst(reset),
+.i00(port0_input84),
+.i01(port1_input84),
+.o01(port0_output84),
+.o02(port1_output84)
+);
+router r90
+( .clk(clk), .rst(reset),
+.i00(port0_input90),
+.i01(port1_input90),
+.o01(port0_output90),
+.o02(port1_output90)
+);
+router r94
+( .clk(clk), .rst(reset),
+.i00(port0_input94),
+.i01(port1_input94),
+.o01(port0_output94),
+.o02(port1_output94)
+);
+router r100
+( .clk(clk), .rst(reset),
+.i00(port0_input100),
+.i01(port1_input100),
+.o01(port0_output100),
+.o02(port1_output100)
+);
+router r104
+( .clk(clk), .rst(reset),
+.i00(port0_input104),
+.i01(port1_input104),
+.o01(port0_output104),
+.o02(port1_output104)
+);
+router r110
+( .clk(clk), .rst(reset),
+.i00(port0_input110),
+.i01(port1_input110),
+.o01(port0_output110),
+.o02(port1_output110)
+);
+router r114
+( .clk(clk), .rst(reset),
+.i00(port0_input114),
+.i01(port1_input114),
+.o01(port0_output114),
+.o02(port1_output114)
+);
+router r120
+( .clk(clk), .rst(reset),
+.i00(port0_input120),
+.i01(port1_input120),
+.o01(port0_output120),
+.o02(port1_output120)
+);
+router r124
+( .clk(clk), .rst(reset),
+.i00(port0_input124),
+.i01(port1_input124),
+.o01(port0_output124),
+.o02(port1_output124)
+);
+router r130
+( .clk(clk), .rst(reset),
+.i00(port0_input130),
+.i01(port1_input130),
+.o01(port0_output130),
+.o02(port1_output130)
+);
+router r134
+( .clk(clk), .rst(reset),
+.i00(port0_input134),
+.i01(port1_input134),
+.o01(port0_output134),
+.o02(port1_output134)
+);
+router r140
+( .clk(clk), .rst(reset),
+.i00(port0_input140),
+.i01(port1_input140),
+.o01(port0_output140),
+.o02(port1_output140)
+);
+router r144
+( .clk(clk), .rst(reset),
+.i00(port0_input144),
+.i01(port1_input144),
+.o01(port0_output144),
+.o02(port1_output144)
+);
+router r150
+( .clk(clk), .rst(reset),
+.i00(port0_input150),
+.i01(port1_input150),
+.o01(port0_output150),
+.o02(port1_output150)
+);
+router r154
+( .clk(clk), .rst(reset),
+.i00(port0_input154),
+.i01(port1_input154),
+.o01(port0_output154),
+.o02(port1_output154)
+);
+router r01
+( .clk(clk), .rst(reset),
+.i00(port0_input01),
+.i01(port1_input01),
+.o01(port0_output01),
+.o02(port1_output01)
+);
+router r02
+( .clk(clk), .rst(reset),
+.i00(port0_input02),
+.i01(port1_input02),
+.o01(port0_output02),
+.o02(port1_output02)
+);
+router r03
+( .clk(clk), .rst(reset),
+.i00(port0_input03),
+.i01(port1_input03),
+.o01(port0_output03),
+.o02(port1_output03)
+);
+router r11
+( .clk(clk), .rst(reset),
+.i00(port0_input11),
+.i01(port1_input11),
+.o01(port0_output11),
+.o02(port1_output11)
+);
+router r12
+( .clk(clk), .rst(reset),
+.i00(port0_input12),
+.i01(port1_input12),
+.o01(port0_output12),
+.o02(port1_output12)
+);
+router r13
+( .clk(clk), .rst(reset),
+.i00(port0_input13),
+.i01(port1_input13),
+.o01(port0_output13),
+.o02(port1_output13)
+);
+router r21
+( .clk(clk), .rst(reset),
+.i00(port0_input21),
+.i01(port1_input21),
+.o01(port0_output21),
+.o02(port1_output21)
+);
+router r22
+( .clk(clk), .rst(reset),
+.i00(port0_input22),
+.i01(port1_input22),
+.o01(port0_output22),
+.o02(port1_output22)
+);
+router r23
+( .clk(clk), .rst(reset),
+.i00(port0_input23),
+.i01(port1_input23),
+.o01(port0_output23),
+.o02(port1_output23)
+);
+router r31
+( .clk(clk), .rst(reset),
+.i00(port0_input31),
+.i01(port1_input31),
+.o01(port0_output31),
+.o02(port1_output31)
+);
+router r32
+( .clk(clk), .rst(reset),
+.i00(port0_input32),
+.i01(port1_input32),
+.o01(port0_output32),
+.o02(port1_output32)
+);
+router r33
+( .clk(clk), .rst(reset),
+.i00(port0_input33),
+.i01(port1_input33),
+.o01(port0_output33),
+.o02(port1_output33)
+);
+router r41
+( .clk(clk), .rst(reset),
+.i00(port0_input41),
+.i01(port1_input41),
+.o01(port0_output41),
+.o02(port1_output41)
+);
+router r42
+( .clk(clk), .rst(reset),
+.i00(port0_input42),
+.i01(port1_input42),
+.o01(port0_output42),
+.o02(port1_output42)
+);
+router r43
+( .clk(clk), .rst(reset),
+.i00(port0_input43),
+.i01(port1_input43),
+.o01(port0_output43),
+.o02(port1_output43)
+);
+router r51
+( .clk(clk), .rst(reset),
+.i00(port0_input51),
+.i01(port1_input51),
+.o01(port0_output51),
+.o02(port1_output51)
+);
+router r52
+( .clk(clk), .rst(reset),
+.i00(port0_input52),
+.i01(port1_input52),
+.o01(port0_output52),
+.o02(port1_output52)
+);
+router r53
+( .clk(clk), .rst(reset),
+.i00(port0_input53),
+.i01(port1_input53),
+.o01(port0_output53),
+.o02(port1_output53)
+);
+router r61
+( .clk(clk), .rst(reset),
+.i00(port0_input61),
+.i01(port1_input61),
+.o01(port0_output61),
+.o02(port1_output61)
+);
+router r62
+( .clk(clk), .rst(reset),
+.i00(port0_input62),
+.i01(port1_input62),
+.o01(port0_output62),
+.o02(port1_output62)
+);
+router r63
+( .clk(clk), .rst(reset),
+.i00(port0_input63),
+.i01(port1_input63),
+.o01(port0_output63),
+.o02(port1_output63)
+);
+router r71
+( .clk(clk), .rst(reset),
+.i00(port0_input71),
+.i01(port1_input71),
+.o01(port0_output71),
+.o02(port1_output71)
+);
+router r72
+( .clk(clk), .rst(reset),
+.i00(port0_input72),
+.i01(port1_input72),
+.o01(port0_output72),
+.o02(port1_output72)
+);
+router r73
+( .clk(clk), .rst(reset),
+.i00(port0_input73),
+.i01(port1_input73),
+.o01(port0_output73),
+.o02(port1_output73)
+);
+router r81
+( .clk(clk), .rst(reset),
+.i00(port0_input81),
+.i01(port1_input81),
+.o01(port0_output81),
+.o02(port1_output81)
+);
+router r82
+( .clk(clk), .rst(reset),
+.i00(port0_input82),
+.i01(port1_input82),
+.o01(port0_output82),
+.o02(port1_output82)
+);
+router r83
+( .clk(clk), .rst(reset),
+.i00(port0_input83),
+.i01(port1_input83),
+.o01(port0_output83),
+.o02(port1_output83)
+);
+router r91
+( .clk(clk), .rst(reset),
+.i00(port0_input91),
+.i01(port1_input91),
+.o01(port0_output91),
+.o02(port1_output91)
+);
+router r92
+( .clk(clk), .rst(reset),
+.i00(port0_input92),
+.i01(port1_input92),
+.o01(port0_output92),
+.o02(port1_output92)
+);
+router r93
+( .clk(clk), .rst(reset),
+.i00(port0_input93),
+.i01(port1_input93),
+.o01(port0_output93),
+.o02(port1_output93)
+);
+router r101
+( .clk(clk), .rst(reset),
+.i00(port0_input101),
+.i01(port1_input101),
+.o01(port0_output101),
+.o02(port1_output101)
+);
+router r102
+( .clk(clk), .rst(reset),
+.i00(port0_input102),
+.i01(port1_input102),
+.o01(port0_output102),
+.o02(port1_output102)
+);
+router r103
+( .clk(clk), .rst(reset),
+.i00(port0_input103),
+.i01(port1_input103),
+.o01(port0_output103),
+.o02(port1_output103)
+);
+router r111
+( .clk(clk), .rst(reset),
+.i00(port0_input111),
+.i01(port1_input111),
+.o01(port0_output111),
+.o02(port1_output111)
+);
+router r112
+( .clk(clk), .rst(reset),
+.i00(port0_input112),
+.i01(port1_input112),
+.o01(port0_output112),
+.o02(port1_output112)
+);
+router r113
+( .clk(clk), .rst(reset),
+.i00(port0_input113),
+.i01(port1_input113),
+.o01(port0_output113),
+.o02(port1_output113)
+);
+router r121
+( .clk(clk), .rst(reset),
+.i00(port0_input121),
+.i01(port1_input121),
+.o01(port0_output121),
+.o02(port1_output121)
+);
+router r122
+( .clk(clk), .rst(reset),
+.i00(port0_input122),
+.i01(port1_input122),
+.o01(port0_output122),
+.o02(port1_output122)
+);
+router r123
+( .clk(clk), .rst(reset),
+.i00(port0_input123),
+.i01(port1_input123),
+.o01(port0_output123),
+.o02(port1_output123)
+);
+router r131
+( .clk(clk), .rst(reset),
+.i00(port0_input131),
+.i01(port1_input131),
+.o01(port0_output131),
+.o02(port1_output131)
+);
+router r132
+( .clk(clk), .rst(reset),
+.i00(port0_input132),
+.i01(port1_input132),
+.o01(port0_output132),
+.o02(port1_output132)
+);
+router r133
+( .clk(clk), .rst(reset),
+.i00(port0_input133),
+.i01(port1_input133),
+.o01(port0_output133),
+.o02(port1_output133)
+);
+router r141
+( .clk(clk), .rst(reset),
+.i00(port0_input141),
+.i01(port1_input141),
+.o01(port0_output141),
+.o02(port1_output141)
+);
+router r142
+( .clk(clk), .rst(reset),
+.i00(port0_input142),
+.i01(port1_input142),
+.o01(port0_output142),
+.o02(port1_output142)
+);
+router r143
+( .clk(clk), .rst(reset),
+.i00(port0_input143),
+.i01(port1_input143),
+.o01(port0_output143),
+.o02(port1_output143)
+);
+router r151
+( .clk(clk), .rst(reset),
+.i00(port0_input151),
+.i01(port1_input151),
+.o01(port0_output151),
+.o02(port1_output151)
+);
+router r152
+( .clk(clk), .rst(reset),
+.i00(port0_input152),
+.i01(port1_input152),
+.o01(port0_output152),
+.o02(port1_output152)
+);
+router r153
+( .clk(clk), .rst(reset),
+.i00(port0_input153),
+.i01(port1_input153),
+.o01(port0_output153),
+.o02(port1_output153)
+);
+always @ ( posedge clk)
+begin
+port0_input01<=port0_output00;
+port0_input81<=port1_output00;
+port0_input02<=port0_output01;
+port0_input42<=port1_output01;
+port0_input03<=port0_output02;
+port0_input23<=port1_output02;
+port0_input04<=port0_output03;
+port0_input14<=port1_output03;
+port0_input11<=port0_output10;
+port0_input91<=port1_output10;
+port0_input12<=port0_output11;
+port0_input52<=port1_output11;
+port0_input13<=port0_output12;
+port0_input33<=port1_output12;
+port1_input04<=port0_output13;
+port1_input14<=port1_output13;
+port0_input21<=port0_output20;
+port0_input101<=port1_output20;
+port0_input22<=port0_output21;
+port0_input62<=port1_output21;
+port1_input03<=port0_output22;
+port1_input23<=port1_output22;
+port0_input24<=port0_output23;
+port0_input34<=port1_output23;
+port0_input31<=port0_output30;
+port0_input111<=port1_output30;
+port0_input32<=port0_output31;
+port0_input72<=port1_output31;
+port1_input13<=port0_output32;
+port1_input33<=port1_output32;
+port1_input24<=port0_output33;
+port1_input34<=port1_output33;
+port0_input41<=port0_output40;
+port0_input121<=port1_output40;
+port1_input02<=port0_output41;
+port1_input42<=port0_output41;
+port0_input43<=port0_output42;
+port0_input63<=port1_output42;
+port0_input44<=port0_output43;
+port0_input54<=port1_output43;
+port0_input51<=port0_output50;
+port0_input131<=port1_output50;
+port1_input12<=port0_output51;
+port1_input52<=port0_output51;
+port0_input53<=port0_output52;
+port0_input73<=port1_output52;
+port1_input44<=port0_output53;
+port1_input54<=port1_output53;
+port0_input61<=port0_output60;
+port0_input141<=port1_output60;
+port1_input22<=port0_output61;
+port1_input62<=port0_output61;
+port1_input43<=port0_output62;
+port1_input63<=port1_output62;
+port0_input64<=port0_output63;
+port0_input74<=port1_output63;
+port0_input71<=port0_output70;
+port0_input151<=port1_output70;
+port1_input32<=port0_output71;
+port1_input72<=port0_output71;
+port1_input53<=port0_output72;
+port1_input73<=port1_output72;
+port1_input64<=port0_output73;
+port1_input74<=port1_output73;
+port1_input01<=port0_output80;
+port1_input81<=port1_output80;
+port0_input82<=port0_output81;
+port0_input122<=port1_output81;
+port0_input83<=port0_output82;
+port0_input103<=port1_output82;
+port0_input84<=port0_output83;
+port0_input94<=port1_output83;
+port1_input11<=port0_output90;
+port1_input91<=port1_output90;
+port0_input92<=port0_output91;
+port0_input132<=port1_output91;
+port0_input93<=port0_output92;
+port0_input113<=port1_output92;
+port1_input84<=port0_output93;
+port1_input94<=port1_output93;
+port1_input21<=port0_output100;
+port1_input101<=port1_output100;
+port0_input102<=port0_output101;
+port0_input142<=port1_output101;
+port1_input83<=port0_output102;
+port1_input103<=port1_output102;
+port0_input104<=port0_output103;
+port0_input114<=port1_output103;
+port1_input31<=port0_output110;
+port1_input111<=port1_output110;
+port0_input112<=port0_output111;
+port0_input152<=port1_output111;
+port1_input93<=port0_output112;
+port1_input113<=port1_output112;
+port1_input104<=port0_output113;
+port1_input114<=port1_output113;
+port1_input41<=port0_output120;
+port1_input121<=port1_output120;
+port1_input82<=port0_output121;
+port1_input122<=port1_output121;
+port0_input123<=port0_output122;
+port0_input143<=port1_output122;
+port0_input124<=port0_output123;
+port0_input134<=port1_output123;
+port1_input51<=port0_output130;
+port1_input131<=port1_output130;
+port1_input92<=port0_output131;
+port1_input132<=port1_output131;
+port0_input133<=port0_output132;
+port0_input153<=port1_output132;
+port1_input124<=port0_output133;
+port1_input134<=port1_output133;
+port1_input61<=port0_output140;
+port1_input141<=port1_output140;
+port1_input102<=port0_output141;
+port1_input142<=port1_output141;
+port1_input123<=port0_output142;
+port1_input143<=port1_output142;
+port0_input144<=port0_output143;
+port0_input154<=port1_output143;
+port1_input71<=port0_output150;
+port1_input151<=port1_output150;
+port1_input112<=port0_output151;
+port1_input152<=port1_output151;
+port1_input133<=port0_output152;
+port1_input153<=port1_output152;
+port1_input144<=port0_output153;
+port1_input154<=port1_output153;
+end
+endmodule

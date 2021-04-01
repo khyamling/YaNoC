@@ -1,0 +1,39 @@
+xst -intstyle ise -ifn "/parane4/fifoSynch.xst" -ofn "/parane4/fifoSynch.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xa3s200-ftg256-4 fifoSynch.ngc fifoSynch.ngd  
+map -intstyle ise -p xa3s200-ftg256-4 -cm area -ir off -pr off -c 100 -o fifoSynch_map.ncd fifoSynch.ngd fifoSynch.pcf 
+par -w -intstyle ise -ol high -t 1 fifoSynch_map.ncd fifoSynch.ncd fifoSynch.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml fifoSynch.twx fifoSynch.ncd -o fifoSynch.twr fifoSynch.pcf 
+xst -intstyle ise -ifn "/parane4/fifoSynch.xst" -ofn "/parane4/fifoSynch.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xa3s200-ftg256-4 fifoSynch.ngc fifoSynch.ngd  
+map -intstyle ise -p xa3s200-ftg256-4 -cm area -ir off -pr off -c 100 -o fifoSynch_map.ncd fifoSynch.ngd fifoSynch.pcf 
+par -w -intstyle ise -ol high -t 1 fifoSynch_map.ncd fifoSynch.ncd fifoSynch.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml fifoSynch.twx fifoSynch.ncd -o fifoSynch.twr fifoSynch.pcf 
+xst -intstyle ise -ifn "/parane4/fifoSynch.xst" -ofn "/parane4/fifoSynch.syr" 
+xst -intstyle ise -ifn "/parane4/fifoSynch.xst" -ofn "/parane4/fifoSynch.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xa3s200-ftg256-4 fifoSynch.ngc fifoSynch.ngd  
+map -intstyle ise -p xa3s200-ftg256-4 -cm area -ir off -pr off -c 100 -o fifoSynch_map.ncd fifoSynch.ngd fifoSynch.pcf 
+par -w -intstyle ise -ol high -t 1 fifoSynch_map.ncd fifoSynch.ncd fifoSynch.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml fifoSynch.twx fifoSynch.ncd -o fifoSynch.twr fifoSynch.pcf 
+xst -intstyle ise -ifn "/parane4/fifoSynch.xst" -ofn "/parane4/fifoSynch.syr" 
+xst -intstyle ise -ifn "/parane4/fifoSynch.xst" -ofn "/parane4/fifoSynch.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xa3s200-ftg256-4 fifoSynch.ngc fifoSynch.ngd  
+map -intstyle ise -p xa3s200-ftg256-4 -cm area -ir off -pr off -c 100 -o fifoSynch_map.ncd fifoSynch.ngd fifoSynch.pcf 
+par -w -intstyle ise -ol high -t 1 fifoSynch_map.ncd fifoSynch.ncd fifoSynch.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml fifoSynch.twx fifoSynch.ncd -o fifoSynch.twr fifoSynch.pcf 
+xst -intstyle ise -ifn "/parane4/fifoSynch.xst" -ofn "/parane4/fifoSynch.syr" 
+xst -intstyle ise -ifn "/parane4/fifoSynch.xst" -ofn "/parane4/fifoSynch.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xa3s200-ftg256-4 fifoSynch.ngc fifoSynch.ngd  
+map -intstyle ise -p xa3s200-ftg256-4 -cm area -ir off -pr off -c 100 -o fifoSynch_map.ncd fifoSynch.ngd fifoSynch.pcf 
+par -w -intstyle ise -ol high -t 1 fifoSynch_map.ncd fifoSynch.ncd fifoSynch.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml fifoSynch.twx fifoSynch.ncd -o fifoSynch.twr fifoSynch.pcf 
+xst -intstyle ise -ifn "/parane4/fifoSynch.xst" -ofn "/parane4/fifoSynch.syr" 
+xst -intstyle ise -ifn "/parane4/fifoSynch.xst" -ofn "/parane4/fifoSynch.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xa3s200-ftg256-4 fifoSynch.ngc fifoSynch.ngd  
+map -intstyle ise -p xa3s200-ftg256-4 -cm area -ir off -pr off -c 100 -o fifoSynch_map.ncd fifoSynch.ngd fifoSynch.pcf 
+par -w -intstyle ise -ol high -t 1 fifoSynch_map.ncd fifoSynch.ncd fifoSynch.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml fifoSynch.twx fifoSynch.ncd -o fifoSynch.twr fifoSynch.pcf 
+xst -intstyle ise -ifn "/parane4/fifoSynch.xst" -ofn "/parane4/fifoSynch.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xa3s200-ftg256-4 fifoSynch.ngc fifoSynch.ngd  
+map -intstyle ise -p xa3s200-ftg256-4 -cm area -ir off -pr off -c 100 -o fifoSynch_map.ncd fifoSynch.ngd fifoSynch.pcf 
+par -w -intstyle ise -ol high -t 1 fifoSynch_map.ncd fifoSynch.ncd fifoSynch.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml fifoSynch.twx fifoSynch.ncd -o fifoSynch.twr fifoSynch.pcf 

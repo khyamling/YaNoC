@@ -1,0 +1,155 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    12:22:04 08/25/2016 
+// Design Name: 
+// Module Name:    compute 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
+module compute(
+  clk,    
+  rst,    
+  req3,   
+  req2,   
+  req1,   
+  req0,   
+  gnt3,   
+  gnt2,   
+  gnt1,   
+  gnt0,
+  temp  
+);
+// --------------Port Declaration----------------------- 
+input           clk;    
+input           rst;    
+input           req3;   
+input           req2;   
+input           req1;   
+input           req0;   
+output          gnt3;   
+output          gnt2;   
+output          gnt1;   
+output          gnt0;
+output          temp;  
+
+//--------------Internal Registers----------------------
+wire    [1:0]   gnt       ;   
+wire            isfree; 
+wire            beg       ;
+wire   [1:0]    lgnt      ;
+wire            lastisfree   ;
+reg             lgnt0     ;
+reg             lgnt1     ;
+reg             lgnt2     ;
+reg             lgnt3     ;
+reg             lstsrvcd   ;
+reg             lgntd0    ;
+reg             lgntd1    ;
+reg             ledge     ;
+reg            temp=0;
+
+
+always @ (posedge clk)
+if (rst) begin
+  lgnt0 <= 0;
+  lgnt1 <= 0;
+  lgnt2 <= 0;
+  lgnt3 <= 0;
+end else begin                                     
+  lgnt0 <=(~isfree & ~lgntd1 & ~lgntd0 & ~req3 & ~req2 & ~req1 & req0)
+        | (~isfree & ~lgntd1 &  lgntd0 & ~req3 & ~req2 &  req0)
+        | (~isfree &  lgntd1 & ~lgntd0 & ~req3 &  req0)
+        | (~isfree &  lgntd1 &  lgntd0 & req0  )
+        | ( isfree & lgnt0 );
+  lgnt1 <=(~isfree & ~lgntd1 & ~lgntd0 &  req1)
+        | (~isfree & ~lgntd1 &  lgntd0 & ~req3 & ~req2 &  req1 & ~req0)
+        | (~isfree &  lgntd1 & ~lgntd0 & ~req3 &  req1 & ~req0)
+        | (~isfree &  lgntd1 &  lgntd0 &  req1 & ~req0)
+        | ( isfree &  lgnt1);
+  lgnt2 <=(~isfree & ~lgntd1 & ~lgntd0 &  req2  & ~req1)
+        | (~isfree & ~lgntd1 &  lgntd0 &  req2)
+        | (~isfree &  lgntd1 & ~lgntd0 & ~req3 &  req2  & ~req1 & ~req0)
+        | (~isfree &  lgntd1 &  lgntd0 &  req2 & ~req1 & ~req0)
+        | ( isfree &  lgnt2);
+  lgnt3 <=(~isfree & ~lgntd1 & ~lgntd0 & req3  & ~req2 & ~req1)
+        | (~isfree & ~lgntd1 &  lgntd0 & req3  & ~req2)
+        | (~isfree &  lgntd1 & ~lgntd0 & req3)
+        | (~isfree &  lgntd1 &  lgntd0 & req3  & ~req2 & ~req1 & ~req0)
+        | ( isfree & lgnt3);
+end 
+
+//----------------------------------------------------
+// lstsrvcdstate machine.
+//----------------------------------------------------
+assign beg = (req3 | req2 | req1 | req0) & ~isfree;
+always @ (posedge clk)
+begin                                     
+  lstsrvcd<= (beg & ~ledge & ~lstsrvcd);
+  ledge   <= (beg & ~ledge &  lstsrvcd) 
+          |  (beg &  ledge & ~lstsrvcd);
+end 
+
+//----------------------------------------------------
+// comreq logic.
+//----------------------------------------------------
+assign isfree = ( req3 & lgnt3 )
+                | ( req2 & lgnt2 )
+                | ( req1 & lgnt1 )
+                | ( req0 & lgnt0 );
+
+//----------------------------------------------------
+// Encoder logic.
+//----------------------------------------------------
+assign  lgnt =  {(lgnt3 | lgnt2),(lgnt3 | lgnt1)};
+
+//----------------------------------------------------
+// lgntd register.
+//----------------------------------------------------
+always @ (posedge clk )
+if( rst ) begin
+  lgntd1 <= 0;
+  lgntd0 <= 0;
+end else if(lstsrvcd) begin
+  lgntd1 <= lgnt[1];
+  lgntd0 <= lgnt[0];
+end else begin
+  lgntd1 <= lgntd1;
+  lgntd0 <= lgntd0;
+end 
+
+assign lastisfree = isfree;
+assign gnt    = lgnt;
+//----------------------------------------------------
+// Drive the outputs
+//----------------------------------------------------
+assign gnt3   = lgnt3;
+assign gnt2   = lgnt2;
+assign gnt1   = lgnt1;
+assign gnt0   = lgnt0;
+always@(*)begin
+ if(gnt3== 1)  begin temp=1;
+ end
+ else if(gnt2==1) begin temp=1;
+ end
+ else if (gnt1==1) begin temp=1;
+ end
+ else if (gnt0==1) begin temp=1;
+ end
+ else  begin temp=0;
+ end
+end
+
+endmodule
+

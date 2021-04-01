@@ -1,0 +1,59 @@
+ISim log file
+Running: /parane4/testFifoSynch_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /parane4/testFifoSynch_isim_beh.wdb 
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Start test:1 at:                   0
+Finished circuit initialization process.
+Pushing value:          1 at                 5000
+Pushing value:          2 at                15000
+Pushing value:          3 at                25000
+Pushing value:          4 at                35000
+Pushing value:          5 at                45000
+Popping value:          1 at                55000
+Popping value:          2 at                65000
+Popping value:          3 at                75000
+Popping value:          4 at                85000
+Popping value:          5 at                95000
+---Cannot Pop: Buffer Empty at time                96000
+Pushing value:          6 at               105000
+Pushing value:          7 at               115000
+Pushing value:          8 at               125000
+Pushing value:          9 at               135000
+Pushing value:         10 at               145000
+Pushing value:         11 at               155000
+Pushing value:         12 at               165000
+Pushing value:         13 at               175000
+---Cannot push <        14>: Buffer Full at time               176000
+Popping value:          6 at               185000
+Popping value:          7 at               195000
+Popping value:          8 at               205000
+Popping value:          9 at               215000
+Popping value:         10 at               225000
+Popping value:         11 at               235000
+Popping value:         12 at               245000
+Popping value:         13 at               255000
+---Cannot Pop: Buffer Empty at time               256000
+Start test:2 at:              270000
+Pushing value:         20 at               275000
+Popping value:         20 at               285000
+Pushing value:          1 at               285000
+Popping value:          1 at               295000
+Pushing value:          2 at               295000
+Popping value:          2 at               305000
+Pushing value:          3 at               305000
+Popping value:          3 at               315000
+Pushing value:          4 at               315000
+Popping value:          4 at               325000
+Pushing value:          5 at               325000
+Popping value:          5 at               335000
+Pushing value:          6 at               335000
+Stopped at time : 350 ns :  in File "/parane4/testFifoSynch.v" Line 105 
+# exit 0

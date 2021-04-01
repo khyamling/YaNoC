@@ -1,2 +1,2 @@
 # YaNoC
-YaNoC: Yet another Network-on-Chip Simulation AccelerationEngine using FPGAs
+YaNoC: Yet another Network-on-Chip Simulation Acceleration Engine using FPGAs
